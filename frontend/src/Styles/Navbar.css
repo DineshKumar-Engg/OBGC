@@ -8,19 +8,17 @@
 
 .navbar-main {
     width: 100%;
-    min-width: 350;
     position: sticky;
 }
 
 .navbar-header {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content:space-between;
     align-items: center;
     font-size: 22px;
     font-weight: 700;
     text-decoration: none;
-    margin-bottom: 5px;
 }
 
 .navbar-header a {
@@ -43,7 +41,7 @@
     border-radius: 50%;
     cursor: pointer;
 }
-
+/* 
 
 .dropdown-menu.inactive {
     opacity: 0;
@@ -57,13 +55,13 @@
     visibility: visible;
     transform: translateY(0);
     transition: 500ms ease;
-}
+} */
 
-@media (min-width:800px) {
+@media (min-width:701px) {
     .navbar-items {
         width: 100%;
     }
-
+    
     .navbar-items ul {
         display: flex;
         justify-content: center;
@@ -98,7 +96,7 @@
     }
 }
 
-@media (max-width:800px) {
+@media (max-width:701px) {
 
 
     .dropdown-menu.inactive {
