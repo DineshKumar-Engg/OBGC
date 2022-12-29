@@ -1,0 +1,11 @@
+/* .App{
+  font-size: 25px;
+  font-weight:700;
+} */
+:root{
+  --BlueColor:#20B8F3;
+  --VoiletColor:#5631FA;
+  --YellowColor:#FBA31F;
+  --orangeColor:#FC6B21;
+  --NavyColor:#1B1C30;
+}

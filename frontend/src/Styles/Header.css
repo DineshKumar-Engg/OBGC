@@ -1,0 +1,14 @@
+:root{
+    --BlueColor:#20B8F3;
+    --VoiletColor:#5631FA;
+    --YellowColor:#FBA31F;
+    --orangeColor:#FC6B21;
+    --NavyColor:#1B1C30;
+  }
+
+.headerMain{
+    position:relative;
+    top:0px;
+    width:100%;
+    z-index: -1;
+}

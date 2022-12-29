@@ -1,0 +1,64 @@
+:root{
+    --BlueColor:#20B8F3;
+    --VoiletColor:#5631FA;
+    --YellowColor:#FBA31F;
+    --orangeColor:#FC6B21;
+    --NavyColor:#1B1C30;
+  }
+
+
+.sliderContainer{
+    min-width:1024px;
+    max-width:1200 ;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    overflow:hidden ;
+}
+.sliderArrow{
+width:40px;
+height:90px;
+background-color:white;
+opacity: 0.5;
+display:flex;
+align-items: center;
+justify-content: center;
+position: absolute;
+top: 0px;
+bottom: 0px;
+margin: auto;
+/* transition: all 1s; */
+cursor: pointer; 
+z-index: 2;
+}
+.sliderArrow svg{
+    color: #1F1F1F;
+    font-size:40PX;
+}
+.sliderArrow.left{
+    left: 15px;
+}
+.sliderArrow.Right{
+    right: 15px;
+}
+.sliderWrapper{
+height: 100%;
+display: flex;
+transform: translateX(-100vw);
+transition: all 1.5s ease;
+}
+.slider{
+width: 100%;
+height:100vh;
+display: flex;
+align-items: center;
+}
+.sliderImage{
+width: 100%;
+height:100%;
+}
+.image{
+    height: 100%;
+    /* width: 100%; */
+    object-fit: cover;
+}
