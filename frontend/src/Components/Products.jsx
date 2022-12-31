@@ -10,10 +10,11 @@ const Products = () => {
   return (
     <div className='productMain'>
        {
-        productsImage.map((item)=>(
-        <div className='productContainer'>
+        //Slice limit no of products display in webpage
+        productsImage.slice(0,9).map((item,index)=>(
+        <div className='productContainer' key={index}>
             <div className='productImage'>
-                <img src={item.image}alt={item.id}></img>
+                <img src={item.image}alt={item.title}></img>
             </div>
             <div className='productContent'>
                 <h2>{item.title}</h2>

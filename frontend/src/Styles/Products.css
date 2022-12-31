@@ -49,6 +49,7 @@
     transition: all 0.5s;
     font-size: 20px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .productButton button:hover{
     transform: translateY(-10px);

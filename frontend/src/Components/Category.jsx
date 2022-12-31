@@ -9,7 +9,7 @@ const Category = () => {
                 {
                     categoryImage.map((item)=>(
 
-                    <div className="category" key={item.id}>
+                    <div className="category" key={item._id}>
                     <img src={item.image} alt="" />
                     <div className='content'>
                     <p>{item.title}</p>

@@ -8,6 +8,7 @@
 
 .navbar-main {
     width: 100%;
+    display: flex;
     position: sticky;
 }
 
@@ -57,9 +58,12 @@
     transition: 500ms ease;
 } */
 
-@media (min-width:701px) {
+@media (min-width:900px) {
     .navbar-items {
-        width: 100%;
+            width:100%;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
     }
     
     .navbar-items ul {
@@ -90,13 +94,13 @@
     }
 
     .navbar-items ul li:hover {
-        background-color: #20B8F3;
+        background-color: #1F1F1F;
         color: #fdfdfd;
         border-radius: 5px;
     }
 }
 
-@media (max-width:701px) {
+@media (max-width:900px) {
 
 
     .dropdown-menu.inactive {
