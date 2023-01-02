@@ -5,7 +5,7 @@ import '../Styles/Products.css'
 import { useState } from 'react'
 import FullScreen from './FullScreen'
 
-const ProductShow = ({item,index}) => {
+const ProductShow = ({item}) => {
   const [fullScreen,OpenFullScreen]=useState(false)
 
   const handleScreen=()=>{
@@ -14,7 +14,7 @@ const ProductShow = ({item,index}) => {
   }
   return (
     <div>
-        <div className='productContainer' key={index.index}>
+        <div className='productContainer' key={item._id}>
             <div className='productImage'>
                 <img src={item.image}alt={item.title}></img>
             </div>

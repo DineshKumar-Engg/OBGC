@@ -1,11 +1,17 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
+import '../Styles/shop.css'
 
 const Shop = () => {
   return (
-    <div>
+    <div className='shopMain'>
+      <div className='shopRow'>
+        <div className='shopCol'>
+            
+        </div>
+        <div className='shopCol'>
 
-        Shop
+        </div>
+      </div>
     </div>
   )
 }

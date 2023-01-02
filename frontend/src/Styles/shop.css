@@ -1,0 +1,18 @@
+.shopMain{
+    width: 100%;
+    height:100vh;
+}
+.shopRow{
+    border: 1px solid black;
+    min-height: 100%;
+    margin: 20px;
+    display: flex;
+}
+.shopCol:first-child{
+    flex:1;
+    border: 1px solid blue;
+}
+.shopCol:Last-child{
+    flex:3;
+    border: 1px solid blue;
+}

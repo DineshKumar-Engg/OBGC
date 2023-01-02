@@ -11,6 +11,7 @@ import Login from './Pages/Login'
 import Profile from './Pages/Profile'
 import Shop from './Pages/Shop'
 import Wish from './Pages/Wish'
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/contact' element={<Contact/>}></Route>
           <Route path='/profile' element={<Profile/>}></Route>
         </Routes>
+        <Footer/>
         </Router>
     </div>
 

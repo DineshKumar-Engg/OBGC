@@ -1,15 +1,21 @@
 import React from 'react'
 import '../Styles/Header.css'
 import HeroSlider, { Slide,Nav} from "hero-slider";
-
-const image1 =require('../Images/FrontBanner/image1.jpg')
-const image2 = require('../Images/FrontBanner/image2.jpg')
-const image3 = require('../Images/FrontBanner/image3.jpg')
-const image4 = require('../Images/FrontBanner/image4.jpg')
-const image5 =require('../Images/FrontBanner/image5.jpg')
-const image6 =require('../Images/FrontBanner/image6.jpg')
-const image7 =require('../Images/FrontBanner/image7.jpg')
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios'
 const Header = () => {
+
+  const [slider,setSlider]=useState([])
+
+    useEffect(()=>{
+      const fetchSlider=async()=>{
+        const result = await axios("http://localhost:5000/slider")
+        setSlider(result.data)
+      }
+      fetchSlider();
+    },[])
+
   return (
     <div className='headerMain'>
     <HeroSlider
@@ -24,59 +30,18 @@ const Header = () => {
         // autoplayDuration: 5000,
       }}
   >
-
-    <Slide
+    {
+      slider.map((item)=>(
+        <Slide
       shouldRenderMask
       background={{
-        backgroundImageSrc:image1,
+        backgroundImageSrc:item.image,
         backgroundAttachment: "fixed"
-      }}
+      }} key={item._id}
     />
-
-    <Slide
-      shouldRenderMask
-      background={{
-        backgroundImageSrc:image2,
-        backgroundAttachment: "fixed"
-      }}
-    />
-
-    <Slide
-      shouldRenderMask
-      background={{
-        backgroundImageSrc:image3,
-        backgroundAttachment: "fixed"
-      }}
-    />
-
-    <Slide
-         shouldRenderMask
-      background={{
-        backgroundImageSrc:image4,
-        backgroundAttachment: "fixed"
-      }}
-    />
-    <Slide
-         shouldRenderMask
-      background={{
-        backgroundImageSrc:image5,
-        backgroundAttachment: "fixed"
-      }}
-    />
-    <Slide
-         shouldRenderMask
-      background={{
-        backgroundImageSrc:image6,
-        backgroundAttachment: "fixed"
-      }}
-    />
-    <Slide
-         shouldRenderMask
-      background={{
-        backgroundImageSrc:image7,
-        backgroundAttachment: "fixed"
-      }}
-    />
+      ))
+    }
+    
   <Nav/>
   </HeroSlider>
   </div>

@@ -29,7 +29,6 @@
     background-color: white ;
     display: flex;
     padding:10px;
-    border: 1px solid #1F1F1F;
 }
 .screenHalf{
     flex:1;
@@ -91,8 +90,6 @@
 .HalfSizeImage{
     display: flex;
     justify-content:space-evenly;
-    /* margin-left: 10px; */
-    /* background-color: #1F1F1F; */
     width: 100%;
 
 }
@@ -144,11 +141,13 @@
 .CartWish>button{
     border: none;
     padding: 10px;
-    border-radius: 5%;
+    border-radius: 5px;
     text-transform: uppercase;
     cursor: pointer;
     font-weight:700;
+    font-size: 15px;
     letter-spacing: 1px;
+    transition: all 0.8s;
 }
 .CartWish>button:active{
 transform: translateY(-10px);
@@ -157,9 +156,17 @@ transform: translateY(-10px);
     background-color:var(--blackColor) ;
     color: white;
 }
+.cart:hover{
+    background-color: white;
+    color: #1F1F1F;
+}
 .wish{
     background-color:var(--NavyColor);
     color: white;
+}
+.wish:hover{
+    background-color:White;
+    color: var(--NavyColor);  
 }
 @media (max-width:800px){
     .CartWish{

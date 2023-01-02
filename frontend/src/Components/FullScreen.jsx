@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import '../Styles/FullScreen.css'
+
 const FullScreen = ({item}) => {
 
   const [style,setStyle]=useState("FullScreenMain");
@@ -11,7 +12,7 @@ const FullScreen = ({item}) => {
 
   return (
     <div className={style}>
-      <div  className='screenContainer' key={item.index}>
+      <div  className='screenContainer' key={item._id}>
         <div className='screenHalf'>
             <div className='screenImage'>
               <div className='FullSizeImage'>

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons'
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons'
-import { slideImage } from '../Images/Image'
+import { slideImage } from '../Image'
 import React from 'react'
 import '../Styles/Banner.css'
 import { useState } from 'react'
@@ -13,10 +13,10 @@ const Banner = () => {
 
     const handleClick=(direction)=>{
         if(direction==='left'){
-           setSlideindex(slideIndex > 0 ? slideIndex - 1 : 2)
+           setSlideindex(slideIndex > 0 ? slideIndex - 1 : 6)
         }
         else if(direction==='right'){
-            setSlideindex(slideIndex < 2 ? slideIndex + 1 : 0) 
+            setSlideindex(slideIndex < 6 ? slideIndex + 1 : 0) 
         }
     }
 
@@ -29,11 +29,9 @@ const Banner = () => {
             <div className='sliderWrapper' style={{transform:`translateX(${slideIndex*-100}vw)`}} >
             {
                 slideImage.map((item)=>(
-                   <div className='slider' key={item.id}>
                      <div className='sliderImage'>
-                    <img src={item.image} className='image' alt=''/>
+                        <img src={item.image} className='image' alt=''/>
                     </div>
-                   </div>
                 ))
             }
             </div>
