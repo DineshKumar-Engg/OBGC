@@ -8,8 +8,7 @@ const ScrollProduct = () => {
            <div className='MensContainer'>
             <div className='MensTitle'>
             <h1>Latest Mens Product</h1>
-            </div>
-                
+            </div>               
             {
                 MensProduct.slice(0,5).map((item)=>(
                     <div className='mensProduct'key={item._id}>

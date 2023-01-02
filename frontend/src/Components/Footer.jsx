@@ -9,22 +9,22 @@ const Footer = () => {
   return (
     <div>
         <section id="footer">
-  <div class="main-footer">
-    <div class="logoinfo" data-aos="fade-up">
+  <div className="main-footer">
+    <div className="logoinfo" data-aos="fade-up">
       <h2>Online Boys Girls Clothes</h2>
       <p>By Dinesh</p>
 
-      <div class="contact-details">
+      <div className="contact-details">
         <h1>Contact Us</h1>
         <li>
-          <div class="fa fa-phone"></div><a href="tel:+919326048690">+91-7373858452</a></li>
+          <div className="fa fa-phone"></div><a href="tel:+919326048690">+91-7373858452</a></li>
         <li>
-          <div class="fa fa-envelope"></div><a href="mailto:yourmail@gmail.com">dineshsoftwareengg@gmail.com</a></li>
+          <div className="fa fa-envelope"></div><a href="mailto:yourmail@gmail.com">dineshsoftwareengg@gmail.com</a></li>
         </div>
     </div>
  
 
-  <div class="com " data-aos="fade-up">
+  <div className="com " data-aos="fade-up">
     <h1>Pages</h1>
     <ul>
       <li><Link to='/'>Home</Link></li>
@@ -33,10 +33,10 @@ const Footer = () => {
       <li><Link to='/login'>LogIn</Link></li>
     </ul>
   </div>
-  <div class="info" data-aos="fade-up">
+  <div className="info" data-aos="fade-up">
     <h1>Social Media</h1>
-    <div class="sociallogos">
-      <div class="logobox">
+    <div className="sociallogos">
+      <div className="logobox">
         <img src={fb} alt=''></img>
         <img src={insta} alt=''></img>
         <img src={twitter} alt=''></img>
@@ -45,7 +45,7 @@ const Footer = () => {
     </div>
   </div>
   </div>
-<footer>©Copyright 2022 All Rights Reserved</footer>
+<footer>©Copyright 2023 All Rights Reserved</footer>
 </section>
 </div>
   )

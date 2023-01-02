@@ -244,7 +244,7 @@ export const ViewProduct=[
         image:require('./fullView/boy11.jpg'),
         images1:require('./fullView/boy12.jpg'),
         images2:require('./fullView/boy13.jpg'),
-        images:require('./fullView/boy14.jpg'),
+        images3:require('./fullView/boy14.jpg'),
         price:'90.00'
     },
     {
@@ -255,7 +255,7 @@ export const ViewProduct=[
         image:require('./fullView/boy21.jpg'),
         images1:require('./fullView/boy22.jpg'),
         images2:require('./fullView/boy23.jpg'),
-        images:require('./fullView/boy24.jpg'),
+        images3:require('./fullView/boy24.jpg'),
         price:'95.00'
     },
     {
@@ -266,7 +266,7 @@ export const ViewProduct=[
         image:require('./fullView/boy31.jpg'),
         images1:require('./fullView/boy32.jpg'),
         images2:require('./fullView/boy33.jpg'),
-        images:require('./fullView/boy34.jpg'),
+        images3:require('./fullView/boy34.jpg'),
         price:'110.00'
     },
     {
@@ -277,7 +277,7 @@ export const ViewProduct=[
         image:require('./fullView/girl11.jpg'),
         images1:require('./fullView/girl12.jpg'),
         images2:require('./fullView/girl13.jpg'),
-        images:require('./fullView/girl14.jpg'),
+        images3:require('./fullView/girl14.jpg'),
         price:'100.00'
     },
     {
@@ -288,7 +288,7 @@ export const ViewProduct=[
         image:require('./fullView/girl21.jpg'),
         images1:require('./fullView/girl22.jpg'),
         images2:require('./fullView/girl23.jpg'),
-        images:require('./fullView/girl24.jpg'),
+        images3:require('./fullView/girl24.jpg'),
         price:'120.00'
     },
     {
@@ -299,7 +299,7 @@ export const ViewProduct=[
         image:require('./fullView/girl31.jpg'),
         images1:require('./fullView/girl32.jpg'),
         images2:require('./fullView/girl33.jpg'),
-        images:require('./fullView/girl34.jpg'),
+        images3:require('./fullView/girl34.jpg'),
         price:'40.00'
     },
     {
@@ -310,7 +310,7 @@ export const ViewProduct=[
         image:require('./fullView/kids11.jpg'),
         images1:require('./fullView/kids12.jpg'),
         images2:require('./fullView/kids13.jpg'),
-        images:require('./fullView/kids14.jpg'),
+        images3:require('./fullView/kids14.jpg'),
         price:'80.00'
     },
     {
@@ -321,7 +321,7 @@ export const ViewProduct=[
         image:require('./fullView/kids21.jpg'),
         images1:require('./fullView/kids22.jpg'),
         images2:require('./fullView/kids23.jpg'),
-        images:require('./fullView/kids24.jpg'),
+        images3:require('./fullView/kids24.jpg'),
         price:'50.00'
     },
     {
@@ -332,7 +332,7 @@ export const ViewProduct=[
         image:require('./fullView/kids31.jpg'),
         images1:require('./fullView/kids32.jpg'),
         images2:require('./fullView/kids33.jpg'),
-        images:require('./fullView/kids34.jpg'),
+        images3:require('./fullView/kids34.jpg'),
         price:'110.00'
     },
     

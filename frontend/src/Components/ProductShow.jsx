@@ -1,18 +1,20 @@
 import React from 'react'
-import { productsImage } from '../Images/Image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBagShopping, faHeart, faSearch, } from '@fortawesome/free-solid-svg-icons'
 import '../Styles/Products.css'
+import { useState } from 'react'
+import FullScreen from './FullScreen'
 
+const ProductShow = ({item,index}) => {
+  const [fullScreen,OpenFullScreen]=useState(false)
 
-const Products = () => {
-    
+  const handleScreen=()=>{
+    OpenFullScreen(true)
+    console.log(fullScreen);
+  }
   return (
-    <div className='productMain'>
-       {
-        //Slice limit no of products display in webpage
-        productsImage.slice(0,9).map((item,index)=>(
-        <div className='productContainer' key={index}>
+    <div>
+        <div className='productContainer' key={index.index}>
             <div className='productImage'>
                 <img src={item.image}alt={item.title}></img>
             </div>
@@ -21,15 +23,14 @@ const Products = () => {
                 <p>${item.price}</p>
             </div>
             <div className='productButton'>
-                <button><FontAwesomeIcon icon={faSearch}/></button>
+                <button onClick={handleScreen} className='view'><FontAwesomeIcon icon={faSearch}/></button>
                 <button><FontAwesomeIcon icon={faHeart}/></button>
                 <button><FontAwesomeIcon icon={faBagShopping}/></button>
             </div>
         </div>
-        ))
-       }
+        {fullScreen ?    <FullScreen item={item}/> : null}
     </div>
   )
 }
 
-export default Products
+export default ProductShow
