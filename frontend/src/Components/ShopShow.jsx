@@ -5,20 +5,22 @@ import '../Styles/Products.css'
 import { useState } from 'react'
 import FullScreen from './FullScreen'
 import { Link } from 'react-router-dom'
-const ProductShow = ({item}) => {
-  const [fullScreen,OpenFullScreen]=useState(false)
 
-  const handleScreen=()=>{
-    OpenFullScreen(true)
-    console.log(fullScreen);
-  }
+const ShopShow = ({item}) => {
+
+    const [fullScreen,OpenFullScreen]=useState(false)
+
+    const handleScreen=()=>{
+        OpenFullScreen(true)
+        console.log(fullScreen);
+      }
   return (
     <div>
         <div className='productContainer' key={item._id}>
             <div className='productImage'>
-                <Link to={`product/${item.slug}`}>
+                <Link to={`/product/${item.slug}`}>
                   <img src={item.image}alt={item.title}></img>
-                </Link> 
+                </Link>
             </div>
             <div className='productContent'>
                 <h2>{item.title}</h2>
@@ -35,4 +37,4 @@ const ProductShow = ({item}) => {
   )
 }
 
-export default ProductShow
+export default ShopShow

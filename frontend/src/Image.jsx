@@ -51,12 +51,12 @@ export const categoryImage=[
     },
     {
         _id:2,
-        title:'Woman',
+        title:'Girls',
         image:"/Images/Category/cimage2.jpg"
     },
     {
         _id:3,
-        title:'kids',
+        title:'Kids',
         image:"/Images/Category/cimage3.jpg"
     },
 ]
@@ -145,6 +145,7 @@ export const ViewProduct=[
     {
         _id:1,
         title:'Shirt',
+        slug:'product1',
         category:'Mens',
         desc:'Shirt For mens wear',
         image:"/Images/fullView/boy11.jpg",
@@ -156,6 +157,7 @@ export const ViewProduct=[
     {
         _id:2,
         title:'Shirt',
+        slug:'product2',
         category:'Mens',
         desc:'Shirt For mens wear',
         image:"/Images/fullView/boy21.jpg",
@@ -167,6 +169,7 @@ export const ViewProduct=[
     {
         _id:3,
         title:'Shirt',
+        slug:'product3',
         category:'Mens',
         desc:'Shirt For mens wear',
         image:"/Images/fullView/boy31.jpg",
@@ -178,7 +181,8 @@ export const ViewProduct=[
     {
         _id:4,
         title:'causal',
-        category:'girls',
+        slug:'product4',
+        category:'Girls',
         desc:'Girls Modern wear',
         image:'/Images/fullView/girl11.jpg',
         images1:'/Images/fullView/girl12.jpg',
@@ -189,7 +193,8 @@ export const ViewProduct=[
     {
         _id:5,
         title:'causal',
-        category:'girls',
+        slug:'product5',
+        category:'Girls',
         desc:'Girls Modern wear',
         image:'/Images/fullView/girl21.jpg',
         images1:'/Images/fullView/girl22.jpg',
@@ -200,7 +205,8 @@ export const ViewProduct=[
     {
         _id:6,
         title:'causal',
-        category:'girls',
+        slug:'product6',
+        category:'Girls',
         desc:'Girls Modern wear',
         image:'/Images/fullView/girl31.jpg',
         images1:'/Images/fullView/girl32.jpg',
@@ -211,7 +217,8 @@ export const ViewProduct=[
     {
         _id:7,
         title:'Fancy',
-        category:'kids',
+        slug:'product7',
+        category:'Kids',
         desc:'Kids Fancy Wear',
         image:'/Images/fullView/kids11.jpg',
         images1:'/Images/fullView/kids12.jpg',
@@ -222,7 +229,8 @@ export const ViewProduct=[
     {
         _id:8,
         title:'Fancy',
-        category:'kids',
+        slug:'product8',
+        category:'Kids',
         desc:'Kids Fancy Wear',
         image:'/Images/fullView/kids21.jpg',
         images1:'/Images/fullView/kids22.jpg',
@@ -231,9 +239,10 @@ export const ViewProduct=[
         price:'50.00'
     },
     {
-        _id:7,
+        _id:9,
         title:'Fancy',
-        category:'kids',
+        slug:'product9',
+        category:'Kids',
         desc:'Kids Fancy Wear',
         image:'/Images/fullView/kids31.jpg',
         images1:'/Images/fullView/kids32.jpg',
@@ -241,6 +250,7 @@ export const ViewProduct=[
         images3:'/Images/fullView/kids34.jpg',
         price:'110.00'
     },
+  
     
  ]
 

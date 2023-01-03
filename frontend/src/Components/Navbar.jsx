@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import LOGO from '../Images/LOGO.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
@@ -12,12 +12,16 @@ import profile from '../Images/Profile.jpg'
 import '../Styles/Navbar.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Store } from '../Store'
 
 
 
 const Navbar = () => {
 
   const [open, setOpen] = useState(false)
+
+  const {state}=useContext(Store)
+  const {cart}=state
 
   return (
     <div className='navbar-main'>
@@ -29,7 +33,9 @@ const Navbar = () => {
               <Link to='/'> <DropDown icon={faHouse} text={"Home"} /></Link>
               <Link to='/shop'><DropDown icon={faShirt} text={"Shop"} /></Link>
               <Link to='/wish'><DropDown icon={faHeart} text={"Wish"} value={0} /></Link>
-              <Link to='/cart'><DropDown icon={faBagShopping} text={"Cart"} value={0} /></Link>
+              <Link to='/cart'><DropDown icon={faBagShopping} text={"Cart"} 
+              value={cart.cartItem.length>0 && (<p>{cart.cartItem.length}</p>)} 
+              /></Link>
               <Link to='/login'><DropDown icon={faRightToBracket} text={"Login"} /></Link>
               <Link to='/contact'><DropDown icon={faHeadset} text={"Contact"} /></Link>
               <Link to='/profile'><DropDown icon={faUser} text={"My Profile"} /></Link>
@@ -52,3 +58,5 @@ function DropDown(props) {
   )
 }
 export default Navbar
+
+//{props.cart.cartItem.length>0 && (<p>{props.cart.cartItem.length}</p>)}

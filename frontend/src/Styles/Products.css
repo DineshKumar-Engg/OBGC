@@ -24,7 +24,7 @@
     margin-top: 10px;
     position: relative;
 }
-.productImage>img{
+.productImage>a>img{
     position: absolute;
     margin: auto;
     top: 0px;

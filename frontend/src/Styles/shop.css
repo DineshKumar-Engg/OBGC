@@ -1,18 +1,111 @@
-.shopMain{
-    width: 100%;
-    height:100vh;
-}
-.shopRow{
-    border: 1px solid black;
-    min-height: 100%;
-    margin: 20px;
+:root{
+    --BlueColor:#20B8F3;
+    --VoiletColor:#5631FA;
+    --YellowColor:#FBA31F;
+    --orangeColor:#FC6B21;
+    --NavyColor:#1B1C30;
+  }
+.s-Main{
+    min-height: 100vh;
+    margin: 40px 0;
     display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+    border: 1px solid saddlebrown;
 }
+.shopCol>h2{
+    margin: 10px 0px 10px 0px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+}
+.s-Col:first-child{
+    flex: 1;
+
+}
+.s-Col:last-child{
+    flex: 4;
+}
+/* .shopRow:first-child{
+display: flex;
+} */
 .shopCol:first-child{
     flex:1;
-    border: 1px solid blue;
+    display: flex;
+    flex-direction:row;
+    margin: 10px;
+    background-color:var(--NavyColor);
+    color:#FFFFFF;
 }
+.shopCol:first-child>button{
+    width:80%;
+    height: 30px;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
+    font-size: 20px;
+    font-weight:500;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
 .shopCol:Last-child{
-    flex:3;
-    border: 1px solid blue;
+    flex:5;
+
+}
+.shopProducts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.paginationBtn{
+    width:50%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    list-style: none;
+    height:40px;  
+    /* background-color: #1B1C30; */
+}
+.paginationBtn a{
+    padding:5px 15px;
+    background-color: #1B1C30;
+    margin:0px 15px;
+    border-radius:5%;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #FFFFFF;
+    transition: all 0.7s;
+}
+
+.disabledBtn a{
+    color: rgba(0,0,0,0.20);
+}
+.activeBtn a{
+    color: #1B1C30;
+    background-color:#FFFFFF;
+}
+
+@media(max-width:600px){
+    .shopCol:first-child{
+        display:flex;
+        flex-direction: column;
+        }
 }

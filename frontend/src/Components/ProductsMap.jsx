@@ -1,19 +1,41 @@
 import React from 'react'
-// import {ViewProduct} from '../Image'
 import ProductShow from './ProductShow'
 import '../Styles/Products.css'
-import { useState } from 'react'
+import { useReducer } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
+import Loading from './Loading'
+
+const reducer=(state,action)=>{
+  switch(action.type){
+    case "Product Request":
+      return{...state,loading:true};
+    case "Product Success":
+      return{...state,products:action.payload,loading:false,};
+    case "Product fails":
+      return{...state,loading:true,error:action.payload};
+  default:
+    return state;
+  }
+}
 
 const ProductsMap = () => {
 
-  const [products,setProducts]=useState([])
+  const [{loading,error,products},dispatch] = useReducer(reducer,{
+    products:[],
+    loading:true,
+    error:''
+  })
 
   useEffect(()=>{
     const fetch = async()=>{
-      const result = await axios.get("http://localhost:5000/view")
-      setProducts(result.data)
+      dispatch({type:"Product Request"})
+      try{
+        const result = await axios.get("http://localhost:5000/view")
+        dispatch({type:'Product Success',payload:result.data})
+      }catch(error){
+        dispatch({type:'Product fails',payload:error.message})
+      }
     }
     fetch();
   },[])
@@ -21,9 +43,13 @@ const ProductsMap = () => {
   return (
     <div className='productMain'>
         {
+          loading?(<Loading/>):
+          error?(<h1>Please Wait for a moments</h1>):
+          (
             products.slice(0,9).map((item)=>(
-                <ProductShow item={item} key={item._id}/>
-            ))
+              <ProductShow item={item} key={item._id}/>
+          ))
+          )
         }
     </div>
   )

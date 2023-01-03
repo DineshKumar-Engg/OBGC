@@ -1,15 +1,13 @@
 import React from 'react'
+import ShopMap from '../Components/ShopMap'
 import '../Styles/shop.css'
 
 const Shop = () => {
   return (
-    <div className='shopMain'>
-      <div className='shopRow'>
-        <div className='shopCol'>
-            
-        </div>
-        <div className='shopCol'>
-
+    <div className='s-Main'>
+      <div className='s-Row'>
+        <div className='s-Col'>
+            <ShopMap/>
         </div>
       </div>
     </div>

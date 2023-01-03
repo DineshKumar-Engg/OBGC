@@ -12,6 +12,14 @@ app.get('/slider',(req,res)=>{
 app.get('/category',(req,res)=>{
     res.send(data.categoryImage)
 })
+app.get('/product/slug/:slug',(req,res)=>{
+    const product = data.ViewProduct.find((x)=>x.slug === req.params.slug)
+    if(product){
+        res.send(product)
+    }else{
+        res.status(404).send({message:'Products Not found....'})
+    }
+})
 app.get('/scroll',(req,res)=>{
     res.send(data.ScrollProducts)
 })
