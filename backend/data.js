@@ -139,6 +139,7 @@ const data={
             images1:"/Images/fullView/boy12.jpg",
             images2:"/Images/fullView/boy13.jpg",
             images3:"/Images/fullView/boy14.jpg",
+            CountOfStock:'10',
             price:'90.00'
         },
         {
@@ -151,6 +152,7 @@ const data={
             images1:"/Images/fullView/boy22.jpg",
             images2:"/Images/fullView/boy23.jpg",
             images3:"/Images/fullView/boy24.jpg",
+            CountOfStock:'9',
             price:'95.00'
         },
         {
@@ -163,6 +165,7 @@ const data={
             images1:"/Images/fullView/boy32.jpg",
             images2:"/Images/fullView/boy33.jpg",
             images3:"/Images/fullView/boy34.jpg",
+            CountOfStock:'20',
             price:'110.00'
         },
         {
@@ -175,6 +178,7 @@ const data={
             images1:'/Images/fullView/girl12.jpg',
             images2:'/Images/fullView/girl13.jpg',
             images3:'/Images/fullView/girl14.jpg',
+            CountOfStock:'15',
             price:'100.00'
         },
         {
@@ -187,6 +191,7 @@ const data={
             images1:'/Images/fullView/girl22.jpg',
             images2:'/Images/fullView/girl23.jpg',
             images3:'/Images/fullView/girl24.jpg',
+            CountOfStock:'5',
             price:'120.00'
         },
         {
@@ -199,6 +204,7 @@ const data={
             images1:'/Images/fullView/girl32.jpg',
             images2:'/Images/fullView/girl33.jpg',
             images3:'/Images/fullView/girl34.jpg',
+            CountOfStock:'10',
             price:'40.00'
         },
         {
@@ -211,6 +217,7 @@ const data={
             images1:'/Images/fullView/kids12.jpg',
             images2:'/Images/fullView/kids13.jpg',
             images3:'/Images/fullView/kids14.jpg',
+            CountOfStock:'9',
             price:'80.00'
         },
         {
@@ -223,6 +230,7 @@ const data={
             images1:'/Images/fullView/kids22.jpg',
             images2:'/Images/fullView/kids23.jpg',
             images3:'/Images/fullView/kids24.jpg',
+            CountOfStock:'7',
             price:'50.00'
         },
         {
@@ -235,6 +243,7 @@ const data={
             images1:'/Images/fullView/kids32.jpg',
             images2:'/Images/fullView/kids33.jpg',
             images3:'/Images/fullView/kids34.jpg',
+            CountOfStock:'25',
             price:'110.00'
         },
         

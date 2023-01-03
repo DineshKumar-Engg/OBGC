@@ -12,8 +12,18 @@ app.get('/slider',(req,res)=>{
 app.get('/category',(req,res)=>{
     res.send(data.categoryImage)
 })
+// for single show
 app.get('/product/slug/:slug',(req,res)=>{
     const product = data.ViewProduct.find((x)=>x.slug === req.params.slug)
+    if(product){
+        res.send(product)
+    }else{
+        res.status(404).send({message:'Products Not found....'})
+    }
+})
+//for product quantity in cart
+app.get('/product/:id',(req,res)=>{
+    const product = data.ViewProduct.find((x)=>x._id === req.params.id)
     if(product){
         res.send(product)
     }else{

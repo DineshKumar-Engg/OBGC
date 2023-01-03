@@ -15,13 +15,12 @@ import { Link } from 'react-router-dom'
 import { Store } from '../Store'
 
 
-
 const Navbar = () => {
 
   const [open, setOpen] = useState(false)
 
   const {state}=useContext(Store)
-  const {cart}=state
+  const {cart,wish}=state
 
   return (
     <div className='navbar-main'>
@@ -32,9 +31,11 @@ const Navbar = () => {
             <ul>
               <Link to='/'> <DropDown icon={faHouse} text={"Home"} /></Link>
               <Link to='/shop'><DropDown icon={faShirt} text={"Shop"} /></Link>
-              <Link to='/wish'><DropDown icon={faHeart} text={"Wish"} value={0} /></Link>
+              <Link to='/wish'><DropDown icon={faHeart} text={"Wish"}
+               value={wish.wishItem.length > 0 && (<p>{wish.wishItem.length}</p>) }
+               /></Link>
               <Link to='/cart'><DropDown icon={faBagShopping} text={"Cart"} 
-              value={cart.cartItem.length>0 && (<p>{cart.cartItem.length}</p>)} 
+              value={cart.cartItem.length > 0 && (<p>{cart.cartItem.reduce((a,c)=>a+c.quantity,0)}</p>) } 
               /></Link>
               <Link to='/login'><DropDown icon={faRightToBracket} text={"Login"} /></Link>
               <Link to='/contact'><DropDown icon={faHeadset} text={"Contact"} /></Link>
@@ -52,7 +53,7 @@ function DropDown(props) {
   return (
     <li className='dropdown '>
       <FontAwesomeIcon className='slide-icon' icon={props.icon} />
-      <p>{props.value}</p>
+      <>{props.value}</>
       <span className='tab'>{props.text}</span>
     </li>
   )

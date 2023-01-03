@@ -1,14 +1,52 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import '../Styles/FullScreen.css'
+import { Store } from '../Store'
+import axios from 'axios'
+
 
 const FullScreen = ({item}) => {
 
   const [style,setStyle]=useState("FullScreenMain");
 
   const [selectImage,ChangeImage] =useState('')
+
+  const {state,dispatch:Dispatch}=useContext(Store)
+
+  const {cart,wish}=state
+
+  const AddToCart= async()=>{
+
+    const ExistItem=cart.cartItem.find((x)=>x._id===item._id)
+    const quantity = ExistItem ? ExistItem.quantity + 1 : 1;
+
+    const {data}=await axios.get(`http://localhost:5000/product/slug/${item.slug}`)
+    if(data.CountOfStock < quantity){
+      window.alert("Product is out of Stock")
+      return
+    }
+
+    Dispatch({
+      type:"CART_ITEM",
+      payload:{...item,quantity}
+    })
+   
+  }
+  const AddToWish=()=>{
+    const ExistItem=wish.wishItem.find((x)=>x._id===item._id)
+    const quantity = ExistItem ? ExistItem.quantity : 1;
+
+    if(ExistItem){
+      window.alert("Already Product Exists in wishList")
+      return
+    }
+    Dispatch({
+      type:"WISH_ITEM",
+      payload:{...item,quantity}
+    })
+  }
 
   return (
     <div className={style}>
@@ -43,8 +81,8 @@ const FullScreen = ({item}) => {
               <p>{item.desc}</p>
             </div>
             <div className='CartWish div'>
-              <button className='cart'>Add To Cart</button>
-              <button className='wish'>Add To Wish</button>
+              <button className='cart' onClick={AddToCart}>Add To Cart</button>
+              <button className='wish' onClick={AddToWish}>Add To Wish</button>
             </div>
         </div>
       </div>

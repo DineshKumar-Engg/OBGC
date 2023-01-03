@@ -3,18 +3,47 @@ import '../Styles/SingleProduct.css'
 // import {TransformWrapper,TransformComponent} from 'react-zoom-pan-pinch'
 import { useContext } from 'react'
 import { Store } from '../Store'
-
+import axios from 'axios'
 
 const SingleProductShow = ({product}) => {
 
     const [selectImage,ChangeImage] =useState('')
 
-    const {dispatch:cartDispatch}=useContext(Store)
+    const {state,dispatch:Dispatch}=useContext(Store)
 
-  const AddToCart=()=>{
-    cartDispatch({type:"CART_ITEM",payload:{...product,quantity:1}})
+    const {cart,wish}=state
+
+  const AddToCart= async()=>{
+
+    const ExistItem=cart.cartItem.find((x)=>x._id===product._id)
+    const quantity = ExistItem ? ExistItem.quantity + 1 : 1;
+
+    const {data}=await axios.get(`http://localhost:5000/product/slug/${product.slug}`)
+    if(data.CountOfStock < quantity){
+      window.alert("Product is out of Stock")
+      return
+    }
+
+    Dispatch({
+      type:"CART_ITEM",
+      payload:{...product,quantity}
+    })
+   
   }
-// // "react-zoom-pan-pinch": "^2.1.3",
+  const AddToWish=()=>{
+
+    const ExistItem=wish.wishItem.find((x)=>x._id===product._id)
+    const quantity = ExistItem ? ExistItem.quantity : 1;
+
+    if(ExistItem){
+      window.alert("Already Product Exists in wishList")
+      return
+    }
+    Dispatch({ 
+      type:"WISH_ITEM",
+      payload:{...product,quantity}
+    })
+  }
   return (
     <div className='singleProductMain'>
         <div className='singleProductRow'>
@@ -22,10 +51,12 @@ const SingleProductShow = ({product}) => {
             <div className='singleproductImage'>
               <div className='singleproductFullImage'>
                 {/* <TransformWrapper>
-                    <TransformComponent> */}
+                    <TransformComponent>
                     <img className='ProductFullImage' src={selectImage || product.image} alt={product.title}/>
-                    {/* </TransformComponent>
+                    </TransformComponent>
                 </TransformWrapper>      */}
+              <img className='ProductFullImage' src={selectImage || product.image} alt={product.title}/>
+
               </div>
               <div className='singleproductHalfImage'>
                   <img src={product.image} onClick={()=>{ChangeImage(`${product.image}`)}} alt={product.title} />
@@ -49,7 +80,7 @@ const SingleProductShow = ({product}) => {
             </div>
             <div className='singleCartWish div'>
               <button className='cart' onClick={AddToCart}>Add To Cart</button>
-              <button className='wish'>Add To Wish</button>
+              <button className='wish'onClick={AddToWish}>Add To Wish</button>
             </div>
             </div>
         </div>

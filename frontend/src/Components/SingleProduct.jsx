@@ -40,7 +40,7 @@ const SingleProduct = () => {
           }catch(err){
             dispatch({type:'Product fails',payload:getError(err)})
           }
-        }
+        } 
         fetch();
       },[slug])
     

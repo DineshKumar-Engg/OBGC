@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBagShopping, faHeart, faSearch, } from '@fortawesome/free-solid-svg-icons'
 import '../Styles/Products.css'
 import { useState } from 'react'
 import FullScreen from './FullScreen'
 import { Link } from 'react-router-dom'
+import { Store } from '../Store'
+import axios from 'axios'
 
 const ShopShow = ({item}) => {
 
@@ -14,6 +16,42 @@ const ShopShow = ({item}) => {
         OpenFullScreen(true)
         console.log(fullScreen);
       }
+
+      const {state,dispatch:Dispatch}=useContext(Store)
+
+      const {cart,wish}=state
+
+      const AddToCart= async()=>{
+    
+        const ExistItem=cart.cartItem.find((x)=>x._id===item._id)
+        const quantity = ExistItem ? ExistItem.quantity + 1 : 1;
+    
+        const {data}=await axios.get(`http://localhost:5000/product/slug/${item.slug}`)
+        if(data.CountOfStock < quantity){
+          window.alert("Product is out of Stock")
+          return
+        }
+    
+        Dispatch({
+          type:"CART_ITEM",
+          payload:{...item,quantity}
+        })
+      }
+
+      const AddToWish=()=>{
+        const ExistItem=wish.wishItem.find((x)=>x._id===item._id)
+        const quantity = ExistItem ? ExistItem.quantity : 1;
+    
+        if(ExistItem){
+          window.alert("Already Product Exists in wishList")
+          return
+        }
+        Dispatch({
+          type:"WISH_ITEM",
+          payload:{...item,quantity}
+        })
+      }
+
   return (
     <div>
         <div className='productContainer' key={item._id}>
@@ -28,8 +66,8 @@ const ShopShow = ({item}) => {
             </div>
             <div className='productButton'>
                 <button onClick={handleScreen} className='view'><FontAwesomeIcon icon={faSearch}/></button>
-                <button><FontAwesomeIcon icon={faHeart}/></button>
-                <button><FontAwesomeIcon icon={faBagShopping}/></button>
+                <button><FontAwesomeIcon onClick={AddToWish} icon={faHeart}/></button>
+                <button><FontAwesomeIcon onClick={AddToCart} icon={faBagShopping}/></button>
             </div>
         </div>
         {fullScreen ?    <FullScreen item={item}/> : null}

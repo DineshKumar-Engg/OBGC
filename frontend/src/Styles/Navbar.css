@@ -89,8 +89,9 @@
 
     .navbar-main p {
         position: relative;
-        top: -10px;
+        top: -15px;
         font-size: 15px;
+        font-weight: 800;
     }
 
     .navbar-items ul li:hover {
@@ -101,21 +102,6 @@
 }
 
 @media (max-width:900px) {
-
-
-    .dropdown-menu.inactive {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-20px);
-        transition: 500ms ease;
-    }
-
-    .dropdown-menu.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        transition: 500ms ease;
-    }
 
     .dropdown-menu {
         position: absolute;
