@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <div className='navbar-main'>
       <div className="navbar-header" >
-        <img src={LOGO} alt='logo'></img>
+        <Link to='/'><img src={LOGO} alt='logo'></img></Link>
         <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`}>
           <div className='navbar-items'>
             <ul>

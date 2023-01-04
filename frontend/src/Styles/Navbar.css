@@ -112,6 +112,7 @@
         width: 210px;
         color: #fdfdfd;
         background-color: #1F1F1F;
+        
     }
 
     .dropdown-menu::before {
@@ -130,6 +131,8 @@
         visibility: visible;
         transform: translateY(0);
         transition: 500ms ease;
+        
+    
     }
 
     .dropdown-menu.inactive {
@@ -145,7 +148,7 @@
         font-weight: 600;
         font-size: 22px;
         cursor: pointer;
-
+        
     }
 
     .dropdown {
