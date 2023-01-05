@@ -1,0 +1,154 @@
+.wish-Container{
+    min-height: 100vh;
+    padding: 30px 10px ;
+
+  }
+  
+  .wish-Row:first-child{
+        margin-bottom: 20px;
+      display:flex;
+      justify-content: center;
+  }
+  .wish-Row:nth-child(2){
+      display: flex;
+      min-height: 100vh;
+     
+  }
+  .wish-Col:first-child{
+    padding: 10px;
+      flex: 3;
+      border: 1px solid brown;
+  }
+  .wish-Col:last-child{
+      flex: 2;
+      border: 1px solid brown;
+  }
+  .wishList{
+      width:100%;
+      height:100%;
+      padding:10px;
+  
+  }
+  .wishBody{
+      margin: 10px;
+      padding:10px;
+      max-width:100%;
+      max-height:100%;
+      box-shadow: 0px 0px 15px rgba(0,0, 0,0.5);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+  }
+  .wishImage{
+      width:100px;
+      height:100px;
+      display: flex;
+  }
+  .wishImage>img{
+      margin: auto;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      max-width: 100%;
+      max-height: 100% ;
+  }
+  .wishFunction{
+      margin: 5px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: auto;
+      flex-direction:row;
+  }
+  .wishFunction a{
+      text-decoration: none;
+      font-size:25px;
+      margin: 0px 0px 0px 10px;
+      font-weight: 700;
+      color: #1B1C30;
+  }
+  .wishBtn{
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      flex-direction:row;
+      width: 100%;
+      padding: 10px 10px;
+  }
+  .wishBtn button{
+      min-width:20px;
+      min-height:20px;
+      border: none;
+      padding: 10px 10px;
+      margin: 0px 8px 0px 8px;
+      background: transparent;
+  }
+  .wishBtn svg{
+      width: 20px;
+      height: 20px;
+  }
+  .wishBtn span{
+      text-align: center;
+      font-size:20px;
+      font-weight: 800;
+      margin: 10px;
+      padding: 5px;
+  }
+  .wishFooter{
+      display: flex;
+      justify-content:space-evenly;
+      align-items: center;
+      font-size: 20px;
+      font-weight:700;
+      text-align: center;
+      padding: 10px;
+  }
+  .wishFooter button{
+      border: none;
+      outline: none;
+      margin: 10px;
+      background:transparent;
+      cursor: pointer;
+  }
+  .wishFooter svg{
+      background:none;
+      font-size: 20px;
+  }
+  
+  @media (max-width:400px){
+      .wishBody{
+          flex-direction: column;
+          width: 50%;
+          height:auto;
+      }
+      .wishFunction{
+          margin: 5px;
+          display: flex;
+          justify-content:center;
+          align-items: center;
+          height: auto;
+          flex-direction:column;
+      }
+      .wishBtn{
+          display: flex;
+          justify-content:center;
+          align-items: center;
+          flex-direction:row;
+          width:50%;
+          padding: 10px 10px;
+      }
+      .wishBtn button{
+          min-width:20px;
+          min-height:20px;
+          border: none;
+          padding: 10px 10px;
+          margin: 0px 8px 0px 8px;
+          background: transparent;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+      }
+  }

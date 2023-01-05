@@ -11,6 +11,7 @@ import Shop from './Pages/Shop'
 import Wish from './Pages/Wish'
 import Footer from './Components/Footer';
 import SingleProduct from './Components/SingleProduct';
+import Register from './Components/Register';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/wish' element={<Wish/>}></Route>
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
+          <Route path='/register' element={<Register/>}></Route>
           <Route path='/contact' element={<Contact/>}></Route>
           <Route path='/profile' element={<Profile/>}></Route>
         </Routes>

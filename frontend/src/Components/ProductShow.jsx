@@ -27,7 +27,7 @@ const ProductShow = ({item}) => {
     const ExistItem=cart.cartItem.find((x)=>x._id===item._id)
     const quantity = ExistItem ? ExistItem.quantity + 1 : 1;
 
-    const {data}=await axios.get(`http://localhost:5000/product/slug/${item.slug}`)
+    const {data}=await axios.get(`http://localhost:5000/products/slug/${item.slug}`)
     if(data.CountOfStock < quantity){
       window.alert("Product is out of Stock")
       return
@@ -53,11 +53,12 @@ const ProductShow = ({item}) => {
       payload:{...item,quantity}
     })
   }
+
   return (
     <div>
         <div className='productContainer' key={item._id}>
             <div className='productImage'>
-                <Link to={`product/${item.slug}`}>
+                <Link to={`/product/${item.slug}`}>
                   <img src={item.image}alt={item.title}></img>
                 </Link> 
             </div>
@@ -68,7 +69,8 @@ const ProductShow = ({item}) => {
             <div className='productButton'>
                 <button onClick={handleScreen} className='view'><FontAwesomeIcon icon={faSearch}/></button>
                 <button><FontAwesomeIcon onClick={AddToWish} icon={faHeart}/></button>
-                <button><FontAwesomeIcon onClick={AddToCart} icon={faBagShopping}/></button>
+                {item.CountOfStock === 0 ? (<button  disabled>Out Of Stock</button>):
+                (<button><FontAwesomeIcon onClick={AddToCart} icon={faBagShopping}/></button>)} 
             </div>
         </div>
         {fullScreen ?    <FullScreen item={item}/> : null}

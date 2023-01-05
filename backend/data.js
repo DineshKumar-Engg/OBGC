@@ -1,47 +1,62 @@
+const bcrypt = require('bcryptjs')
 
 const data={
-    slideImage:[
+    User:[
         {
-            _id:1,
+            name:"dinesh",
+            email:"admin@gmail.com",
+            password:bcrypt.hashSync("Admin@#1234"),
+            isAdmin:true
+        },
+        {   
+            name:"kumar",
+            email:"kumar@gmail.com",
+            password:bcrypt.hashSync("Dinesh@#1036"),
+            isAdmin:false
+        },
+    ],
+    Slider:[
+        {
+            //_id:1,
             image:"/Images/FrontBanner/image1.jpg"
         },
         {
-            _id:2,
+            //_id:2,
             image:"/Images/FrontBanner/image2.jpg"
         },
         {
-            _id:3,
+           // _id:3,
             image:"/Images/FrontBanner/image3.jpg"
         },
         {
-            _id:4,
+            //_id:4,
             image:"/Images/FrontBanner/image4.jpg"
         },
         {
-            _id:5,
+            //_id:5,
             image:"/Images/FrontBanner/image5.jpg"
         },
         {
-            _id:6,
+           // _id:6,
             image:"/Images/FrontBanner/image6.jpg"
         },{
-            _id:7,
+            //_id:7,
             image:"/Images/FrontBanner/image7.jpg"
         }
      ],
-    categoryImage:[
+    Category:[
         {
-            _id:1,
+            //_id:1,
             title:'Mens',
             image:"/Images/Category/cimage1.jpg"
         },
         {
-            _id:2,
+            //_id:2,
             title:'Girls',
             image:"/Images/Category/cimage2.jpg"
         },
         {
-            _id:3,
+            //_id:3,
             title:'Kids',
             image:"/Images/Category/cimage3.jpg"
         },
@@ -128,10 +143,10 @@ const data={
         ],
     } 
 ],
-    ViewProduct:[
+    Product:[
         {
-            _id:1,
-            title:'Shirt',
+            // _id:1,
+            title:'Shirt-1',
             slug:'product1',
             category:'Mens',
             desc:'Shirt For mens wear',
@@ -139,12 +154,12 @@ const data={
             images1:"/Images/fullView/boy12.jpg",
             images2:"/Images/fullView/boy13.jpg",
             images3:"/Images/fullView/boy14.jpg",
-            CountOfStock:'10',
+            CountOfStock:'5',
             price:'90.00'
         },
         {
-            _id:2,
-            title:'Shirt',
+            // _id:2,
+            title:'Shirt-2',
             slug:'product2',
             category:'Mens',
             desc:'Shirt For mens wear',
@@ -152,12 +167,12 @@ const data={
             images1:"/Images/fullView/boy22.jpg",
             images2:"/Images/fullView/boy23.jpg",
             images3:"/Images/fullView/boy24.jpg",
-            CountOfStock:'9',
+            CountOfStock:'6',
             price:'95.00'
         },
         {
-            _id:3,
-            title:'Shirt',
+            // _id:3,
+            title:'Shirt-3',
             slug:'product3',
             category:'Mens',
             desc:'Shirt For mens wear',
@@ -169,8 +184,8 @@ const data={
             price:'110.00'
         },
         {
-            _id:4,
-            title:'causal',
+            // _id:4,
+            title:'causal-1',
             slug:'product4',
             category:'Girls',
             desc:'Girls Modern wear',
@@ -182,8 +197,8 @@ const data={
             price:'100.00'
         },
         {
-            _id:5,
-            title:'causal',
+            // _id:5,
+            title:'causal-2',
             slug:'product5',
             category:'Girls',
             desc:'Girls Modern wear',
@@ -195,8 +210,8 @@ const data={
             price:'120.00'
         },
         {
-            _id:6,
-            title:'causal',
+            // _id:6,
+            title:'causal-3',
             slug:'product6',
             category:'Girls',
             desc:'Girls Modern wear',
@@ -208,8 +223,8 @@ const data={
             price:'40.00'
         },
         {
-            _id:7,
-            title:'Fancy',
+            // _id:7,
+            title:'Fancy-1',
             slug:'product7',
             category:'Kids',
             desc:'Kids Fancy Wear',
@@ -221,8 +236,8 @@ const data={
             price:'80.00'
         },
         {
-            _id:8,
-            title:'Fancy',
+            // _id:8,
+            title:'Fancy-2',
             slug:'product8',
             category:'Kids',
             desc:'Kids Fancy Wear',
@@ -234,8 +249,8 @@ const data={
             price:'50.00'
         },
         {
-            _id:9,
-            title:'Fancy',
+            // _id:9,
+            title:'Fancy-3',
             slug:'product9',
             category:'Kids',
             desc:'Kids Fancy Wear',

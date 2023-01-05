@@ -141,10 +141,10 @@ export const KidsProduct=[
     },
 ]
 
-export const ViewProduct=[
+export const Product=[
     {
         _id:1,
-        title:'Shirt',
+        title:'Shirt 1',
         slug:'product1',
         category:'Mens',
         desc:'Shirt For mens wear',
@@ -152,11 +152,12 @@ export const ViewProduct=[
         images1:"/Images/fullView/boy12.jpg",
         images2:"/Images/fullView/boy13.jpg",
         images3:"/Images/fullView/boy14.jpg",
+        CountOfStock:'5',
         price:'90.00'
     },
     {
         _id:2,
-        title:'Shirt',
+        title:'Shirt 2',
         slug:'product2',
         category:'Mens',
         desc:'Shirt For mens wear',
@@ -164,11 +165,12 @@ export const ViewProduct=[
         images1:"/Images/fullView/boy22.jpg",
         images2:"/Images/fullView/boy23.jpg",
         images3:"/Images/fullView/boy24.jpg",
+        CountOfStock:'6',
         price:'95.00'
     },
     {
         _id:3,
-        title:'Shirt',
+        title:'Shirt 3',
         slug:'product3',
         category:'Mens',
         desc:'Shirt For mens wear',
@@ -176,11 +178,12 @@ export const ViewProduct=[
         images1:"/Images/fullView/boy32.jpg",
         images2:"/Images/fullView/boy33.jpg",
         images3:"/Images/fullView/boy34.jpg",
+        CountOfStock:'20',
         price:'110.00'
     },
     {
         _id:4,
-        title:'causal',
+        title:'causal 1',
         slug:'product4',
         category:'Girls',
         desc:'Girls Modern wear',
@@ -188,11 +191,12 @@ export const ViewProduct=[
         images1:'/Images/fullView/girl12.jpg',
         images2:'/Images/fullView/girl13.jpg',
         images3:'/Images/fullView/girl14.jpg',
+        CountOfStock:'15',
         price:'100.00'
     },
     {
         _id:5,
-        title:'causal',
+        title:'causal 2',
         slug:'product5',
         category:'Girls',
         desc:'Girls Modern wear',
@@ -200,11 +204,12 @@ export const ViewProduct=[
         images1:'/Images/fullView/girl22.jpg',
         images2:'/Images/fullView/girl23.jpg',
         images3:'/Images/fullView/girl24.jpg',
+        CountOfStock:'5',
         price:'120.00'
     },
     {
         _id:6,
-        title:'causal',
+        title:'causal 3',
         slug:'product6',
         category:'Girls',
         desc:'Girls Modern wear',
@@ -212,11 +217,12 @@ export const ViewProduct=[
         images1:'/Images/fullView/girl32.jpg',
         images2:'/Images/fullView/girl33.jpg',
         images3:'/Images/fullView/girl34.jpg',
+        CountOfStock:'10',
         price:'40.00'
     },
     {
         _id:7,
-        title:'Fancy',
+        title:'Fancy 1',
         slug:'product7',
         category:'Kids',
         desc:'Kids Fancy Wear',
@@ -224,11 +230,12 @@ export const ViewProduct=[
         images1:'/Images/fullView/kids12.jpg',
         images2:'/Images/fullView/kids13.jpg',
         images3:'/Images/fullView/kids14.jpg',
+        CountOfStock:'9',
         price:'80.00'
     },
     {
         _id:8,
-        title:'Fancy',
+        title:'Fancy 2',
         slug:'product8',
         category:'Kids',
         desc:'Kids Fancy Wear',
@@ -236,11 +243,12 @@ export const ViewProduct=[
         images1:'/Images/fullView/kids22.jpg',
         images2:'/Images/fullView/kids23.jpg',
         images3:'/Images/fullView/kids24.jpg',
+        CountOfStock:'7',
         price:'50.00'
     },
     {
         _id:9,
-        title:'Fancy',
+        title:'Fancy 3',
         slug:'product9',
         category:'Kids',
         desc:'Kids Fancy Wear',
@@ -248,9 +256,9 @@ export const ViewProduct=[
         images1:'/Images/fullView/kids32.jpg',
         images2:'/Images/fullView/kids33.jpg',
         images3:'/Images/fullView/kids34.jpg',
+        CountOfStock:'25',
         price:'110.00'
     },
-  
     
  ]
 

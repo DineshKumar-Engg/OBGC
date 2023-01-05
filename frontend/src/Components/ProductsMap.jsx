@@ -31,7 +31,7 @@ const ProductsMap = () => {
     const fetch = async()=>{
       dispatch({type:"Product Request"})
       try{
-        const result = await axios.get("http://localhost:5000/view")
+        const result = await axios.get("http://localhost:5000/products")
         dispatch({type:'Product Success',payload:result.data})
       }catch(error){
         dispatch({type:'Product fails',payload:error.message})

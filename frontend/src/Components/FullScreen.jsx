@@ -22,7 +22,7 @@ const FullScreen = ({item}) => {
     const ExistItem=cart.cartItem.find((x)=>x._id===item._id)
     const quantity = ExistItem ? ExistItem.quantity + 1 : 1;
 
-    const {data}=await axios.get(`http://localhost:5000/product/slug/${item.slug}`)
+    const {data}=await axios.get(`http://localhost:5000/products/slug/${item.slug}`)
     if(data.CountOfStock < quantity){
       window.alert("Product is out of Stock")
       return
@@ -81,7 +81,8 @@ const FullScreen = ({item}) => {
               <p>{item.desc}</p>
             </div>
             <div className='CartWish div'>
-              <button className='cart' onClick={AddToCart}>Add To Cart</button>
+            { item.CountOfStock === item.quantity ? (<p>Out of Stock</p>):
+                (<button className='cart' onClick={AddToCart}>Add To Cart</button>)}
               <button className='wish' onClick={AddToWish}>Add To Wish</button>
             </div>
         </div>

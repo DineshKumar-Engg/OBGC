@@ -6,7 +6,7 @@ import ScrollProduct from '../Components/ScrollProduct'
 const Home = () => {
   return (
     <div>
-      {/* <Header/>  */}
+      <Header/> 
       <Category/>
       <ProductsMap/>
       <ScrollProduct/>
