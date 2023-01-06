@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../Styles/Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { passwordvalidtor, emailValidator } from '../Validator'
-//import {toast} from 'react-toastify'
+import {toast} from 'react-toastify'
 import axios from 'axios'
+import { Store } from '../Store'
 
 
 
@@ -17,6 +18,7 @@ const Register = () => {
     const handleChange = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
+    const { state, dispatch: Dispatch } = useContext(Store)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,18 +26,27 @@ const Register = () => {
             return setError("Please enter valid email id")
         }
         if (!passwordvalidtor(input.password)) {
-            console.log(passwordvalidtor(input.password));
-            return setError("password must contain Minimum 8 and maximum 20 characters, at least one uppercase letter, one lowercase letter, one number and one special character:")
+            return setError("Password must contain Minimum 8 and maximum 20 characters, at least one uppercase letter, one lowercase letter, one number and one special character:")
         }
-
-        await axios.post("http://localhost:5000/register", input)
-            .then((res) => {
-                //   toast.success("User Registered Successfully",{autoClose:3000,})
-                navigate('/login')
+        if(input.password !== input.confirmPassword){
+            return setError("Password,Confirm Password must be same")
+        }
+        try{
+            await axios.post("http://localhost:5000/user/register", input)
+            .then((res)=>{
+                console.log(res);
+                toast.success("User Registered Successfully",{autoClose:2000})
             })
-            .catch((err) => console.log(err)
-                // toast(err.response.data)
-            )
+            .catch((err)=>{
+                toast.error(err.response.data,{autoClose:2000})
+            })
+            //   navigate('/login')
+        }         
+        catch(err){
+            console.log(err);        
+        } 
+                 
+
     }
 
     return (

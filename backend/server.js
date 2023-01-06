@@ -27,7 +27,10 @@ app.use('/slider',SliderRouter)
 // login checking
 //app.use('/users',UserRouter)
 // either or this
-app.use('/login',UserRouter)
+app.use('/user',UserRouter)
+//Register user
+app.use('/user',UserRouter)
+
 
 
 app.use((err,req,res,next)=>{

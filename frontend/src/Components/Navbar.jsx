@@ -19,8 +19,17 @@ const Navbar = () => {
 
   const [open, setOpen] = useState(false)
 
-  const {state}=useContext(Store)
-  const {cart,wish}=state
+  const {state,dispatch:Dispatch}=useContext(Store)
+  const {cart,wish,userInfo}=state
+
+  const signoutHandler=()=>{
+    Dispatch({
+      type:"SIGN_OUT",
+    })
+    localStorage.removeItem('userInfo')
+    localStorage.removeItem('deliveryAddress')
+    localStorage.removeItem('paymentMethod')
+  }
 
   return (
     <div className='navbar-main'>
@@ -37,9 +46,14 @@ const Navbar = () => {
               <Link to='/cart'><DropDown icon={faBagShopping} text={"Cart"} 
               value={cart.cartItem.length > 0 && (<p>{cart.cartItem.reduce((a,c)=>a+c.quantity,0)}</p>) } 
               /></Link>
-              <Link to='/login'><DropDown icon={faRightToBracket} text={"Login"} /></Link>
+              {
+              userInfo ? (<span onClick={signoutHandler}><Link to='/'><DropDown icon={faRightToBracket}  text={"Log-Out"} /></Link></span>):
+              (<Link to='/login'><DropDown icon={faRightToBracket} text={"Log-in"} /></Link>)
+              }
               <Link to='/contact'><DropDown icon={faHeadset} text={"Contact"} /></Link>
-              <Link to='/profile'><DropDown icon={faUser} text={"My Profile"} /></Link>
+              {userInfo?(<Link to='/profile'><DropDown icon={faUser} text={userInfo.name} /></Link>):
+              (<Link to='/login'><DropDown icon={faUser} text={"My Profile"} /></Link>)}
+              
             </ul>
           </div>
         </div>
@@ -59,5 +73,3 @@ function DropDown(props) {
   )
 }
 export default Navbar
-
-//{props.cart.cartItem.length>0 && (<p>{props.cart.cartItem.length}</p>)}

@@ -4,19 +4,19 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const expressAsyncHandler = require('express-async-handler');
 
-
-UserRouter.post('/', expressAsyncHandler(async (req, res) => {
+// LOGIN VERFICATION
+UserRouter.post('/login', expressAsyncHandler(async (req, res) => {
     try {
 
         const user = await User.findOne({ email: req.body.email })
         if (!user) {
-            res.status(400).json("User Email is not registered")
-            return
+            
+            return res.status(404).json("User Email is not registered")
         }
         const password = await bcrypt.compare(req.body.password, user.password)
         if (!password) {
-            res.status(400).json("User password is not correct")
-            return
+            
+            return res.status(404).json("User password is not correct")
         }
         const Token = jwt.sign(
         {
@@ -29,10 +29,6 @@ UserRouter.post('/', expressAsyncHandler(async (req, res) => {
         { expiresIn: '3d' }
         
         )
-
-       
-
-
         if (User && password && Token) {
             res.send({
                 _id: user._id,
@@ -41,18 +37,42 @@ UserRouter.post('/', expressAsyncHandler(async (req, res) => {
                 isAdmin: user.isAdmin,
                 token: Token
             })
-            res.header('auth', Token).json(Token)
-        }else{
-            res.status(401).send({message:"Invalid User & Password"})
+            // res.header('auth', Token).json(Token)
         }
-
-        
-       
-
-    } catch (err) {
-        console.log(err);
-        res.status(401).json("check login routes server")
+    }catch(err){
+        return res.status(401).json("check login routes server")
     }
 }))
+
+
+
+UserRouter.post('/register',expressAsyncHandler(async (req,res)=>{
+    try{
+      const emailExist= await User.findOne({email:req.body.email});
+       if(emailExist){
+           return res.status(401).json("Email already exists")
+       }
+      //const hash = await bcrypt.hash(req.body.password);
+       const NewUser = new User({
+           name:req.body.name,
+           email:req.body.email,
+           password:bcrypt.hashSync(req.body.password)
+       }) 
+            
+       var user = await NewUser.save();
+       res.send({
+        _id:user._id,
+        name:user.name,
+        email:user.email,
+        isAdmin:user.isAdmin,
+        password:user.password
+       })
+    
+
+   }catch(err){
+       res.status(401).json("Registration Error")
+   }
+}))
+
 
 module.exports = UserRouter

@@ -5,14 +5,16 @@ export const Store = createContext()
 
 const initialState={
     cart:{
+        deliveryAddress:localStorage.getItem('deliveryAddress')? JSON.parse(localStorage.getItem('deliveryAddress')):{},
         cartItem:localStorage.getItem('cartItem')? JSON.parse(localStorage.getItem('cartItem')):[],
+        paymentMethod:localStorage.getItem('paymentMethod')? JSON.parse(localStorage.getItem('paymentMethod')):''
+
     },
     wish:{
         wishItem:localStorage.getItem('wishItem')? JSON.parse(localStorage.getItem('wishItem')):[]
     },
-    userInfo:{
-        info:[]
-    }
+    userInfo:localStorage.getItem('userInfo')? JSON.parse(localStorage.getItem('userInfo')):null
+    
 }
 
 function reducer(state,action){
@@ -51,6 +53,19 @@ function reducer(state,action){
             }
         case "USER_LOGIN":
             return{...state,userInfo:action.payload}
+        case "SIGN_OUT":
+            return{...state,
+                userInfo:null,
+                cart:{cartItem:[],
+                    deliveryAddress:{},
+                    paymentMethod:''
+                }}
+        case "USER_REGISTER":
+            return{...state,}
+        case "DELIVERY_ADDRESS":
+            return{...state,cart:{...state.cart,deliveryAddress:action.payload}}
+        case "PAYMENT_METHOD":
+            return{...state,cart:{...state.cart,paymentMethod:action.payload}}
         default:
             return state;
     }

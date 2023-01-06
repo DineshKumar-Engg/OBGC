@@ -7,6 +7,7 @@ import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import { faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
+import { useEffect } from 'react'
 
 
 
@@ -16,7 +17,7 @@ const Cart = () => {
 
   const { state, dispatch: Dispatch } = useContext(Store)
 
-  const { cart: { cartItem } } = state
+  const { cart: { cartItem },userInfo } = state
 
   const updateCart= async(item,quantity)=>{
     const {data}=await axios.get(`http://localhost:5000/products/slug/${item.slug}`)
@@ -36,10 +37,14 @@ const Cart = () => {
       payload:item
     })
   }
-
+  
   const checkhandler=()=>{
 
-    navigate('/login?redirect=/shipping')
+    if(!userInfo){
+        navigate('/login')
+    }else{
+      navigate('/shipping')
+    }
   }
   
 
