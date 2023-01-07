@@ -1,6 +1,6 @@
 .wish-Container{
     min-height: 100vh;
-    padding: 30px 10px ;
+    padding: 20px 10px ;
 
   }
   
@@ -17,11 +17,9 @@
   .wish-Col:first-child{
     padding: 10px;
       flex: 3;
-      border: 1px solid brown;
   }
   .wish-Col:last-child{
       flex: 2;
-      border: 1px solid brown;
   }
   .wishList{
       width:100%;
@@ -32,12 +30,13 @@
   .wishBody{
       margin: 10px;
       padding:10px;
-      max-width:100%;
+      max-width:80%;
       max-height:100%;
       box-shadow: 0px 0px 15px rgba(0,0, 0,0.5);
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
+      border-radius: 10px;
   }
   .wishImage{
       width:100px;
@@ -56,12 +55,17 @@
   .wishFunction{
       margin: 5px;
       display: flex;
-      justify-content: space-evenly;
       align-items: center;
       height: auto;
-      flex-direction:row;
+    justify-content: center;
+
   }
-  .wishFunction a{
+  .wishFunction>span{
+    font-size:20px;
+    margin: 10px 0px 0px 10px;
+    font-weight: 700;
+  }
+  .wishFunction>a{
       text-decoration: none;
       font-size:25px;
       margin: 0px 0px 0px 10px;
@@ -118,9 +122,19 @@
   
   @media (max-width:400px){
       .wishBody{
-          flex-direction: column;
-          width: 50%;
-          height:auto;
+        flex-direction: column;
+        width: 100%;
+        height:auto;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+      }
+      .wishList{
+        width:100%;
+        height:100%;
+        padding:10px;
+        justify-content: center;
+        align-items: center;
       }
       .wishFunction{
           margin: 5px;

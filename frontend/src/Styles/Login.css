@@ -188,3 +188,23 @@ color: white;
     font-family: 'Josefin Slab', serif;
     letter-spacing: 1px;
 }
+.checkBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.paymentmain{
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    flex-direction:row;
+    position: relative;
+}
+.checkBox label{
+    display: block;
+}

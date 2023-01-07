@@ -39,7 +39,7 @@ const Wish = () => {
                     </div>
                     <div className='wishFunction'>
                       <Link to={`/product/${item.slug}`}>{item.title}</Link>
-                      <div className='wishBtn'><span>{item.quantity}</span></div>
+                     <span> Quantity{item.quantity}</span>
                     </div>
                     <div className='wishFooter'>
                       <span>${" "}{item.price}</span>

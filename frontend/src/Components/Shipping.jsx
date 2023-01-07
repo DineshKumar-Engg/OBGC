@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../Styles/Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { Store } from '../Store';
@@ -14,7 +14,9 @@ const Shipping = () => {
         
   const { state, dispatch: Dispatch } = useContext(Store)
 
-  const { cart:{deliveryAddress}}=state
+  const {cart:{deliveryAddress,paymentMethod},userInfo}=state
+
+    const [payment,setPayment]=useState(paymentMethod || "Cash")
 
     const [input, setInput] = useState(
         { 
@@ -30,9 +32,16 @@ const Shipping = () => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
 
+    // useEffect(()=>{
+    //     if(!userInfo){
+    //         navigate('/login')
+    //     }
+    // },[userInfo,navigate])
+
     const handleSubmit=(e)=>{
         e.preventDefault();
         
+
         Dispatch(
             {
                 type:"DELIVERY_ADDRESS",
@@ -44,7 +53,12 @@ const Shipping = () => {
                     district:input.district,
                     postalcode:input.postalcode
                 },
+            }, 
+            {
+                type:"PAYMENT_METHOD",
+                payload:payment
             }
+
             )
         localStorage.setItem('deliveryAddress',JSON.stringify(
             {
@@ -56,7 +70,9 @@ const Shipping = () => {
                     postalcode:input.postalcode
             }
         ))
-        navigate('/payment')
+        localStorage.setItem('paymentMethod',payment)
+        
+        navigate('/placeorder')
     }
 
 
@@ -90,11 +106,20 @@ const Shipping = () => {
                     <input type={"Number"} name="postalcode" value={input.postalcode} onChange={handleChange} className="form-control" id="txtpassword" required />
                     <label className="form-label">Postal Code</label>
                 </div>
+                <div className='paymentmain'>
+                <div className='checkBox'>
+                <input type={"checkbox"} value="Cash"   checked={payment ==="Cash"}  onChange={(e)=>{setPayment(e.target.value)}} />
+                    <label >Cash</label>
+                </div>
+                <div className='checkBox'>
+                <input type={"checkbox"} value="Card" checked={payment ==="Card"}  onChange={(e)=>{setPayment(e.target.value)}} />
+                    <label >Card</label>
+                </div>
+                </div>
                 <div className='register-btn'>
                     <span><Link to='/shop'><button type="submit" className='submitBtn'>Shop</button></Link></span>
                     <span><button type="submit" className='submitBtn' >Submit</button></span>
                 </div>
-
             </form>
         </div>
   )
