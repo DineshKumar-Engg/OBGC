@@ -16,6 +16,8 @@ import Shipping from './Components/Shipping';
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from 'react-toastify';
 import PlaceOrder from './Components/PlaceOrder';
+import OrderList from './Components/OrderList';
+import OrderHistory from './Components/OrderHistory';
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='/shipping' element={<Shipping/>}></Route>
           <Route path='/placeorder' element={<PlaceOrder/>}></Route>
+          <Route path='/orderhistory' element={<OrderHistory/>}></Route>
+          <Route path='/order/:id' element={<OrderList/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
           <Route path='/contact' element={<Contact/>}></Route>

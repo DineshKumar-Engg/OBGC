@@ -66,6 +66,8 @@ function reducer(state,action){
             return{...state,cart:{...state.cart,deliveryAddress:action.payload}}
         case "PAYMENT_METHOD":
             return{...state,cart:{...state.cart,paymentMethod:action.payload}}
+        case "CART_CLEAR":
+                return{...state,cart:{...state.cart,cartItem:[]}}
         default:
             return state;
     }

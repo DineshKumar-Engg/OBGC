@@ -29,6 +29,8 @@ const Navbar = () => {
     localStorage.removeItem('userInfo')
     localStorage.removeItem('deliveryAddress')
     localStorage.removeItem('paymentMethod')
+    localStorage.removeItem('cartItem')
+    localStorage.removeItem('wishItem')
   }
 
   return (

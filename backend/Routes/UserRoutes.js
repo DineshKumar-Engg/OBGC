@@ -3,6 +3,7 @@ const User = require('../models/UserSchema.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const expressAsyncHandler = require('express-async-handler');
+// const { generateToken } = require('../utils.js');
 
 // LOGIN VERFICATION
 UserRouter.post('/login', expressAsyncHandler(async (req, res) => {
@@ -29,13 +30,13 @@ UserRouter.post('/login', expressAsyncHandler(async (req, res) => {
         { expiresIn: '3d' }
         
         )
-        if (User && password && Token) {
+        if (user && password) {
             res.send({
                 _id: user._id,
                 name: user.name,
                 email: user.email,
                 isAdmin: user.isAdmin,
-                token: Token
+                token:Token
             })
             // res.header('auth', Token).json(Token)
         }

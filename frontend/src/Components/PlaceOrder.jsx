@@ -2,12 +2,35 @@ import React from 'react'
 import { useContext } from 'react'
 import '../Styles/PlaceOrder.css'
 import {Store} from '../Store'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useReducer } from 'react'
+import {toast} from 'react-toastify'
+import { getError } from '../utils'
+import axios from 'axios'
+import Loading from './Loading'
 
 
+const reducer =(state,action)=>{
+  switch(action.type)
+  {
+    case "CREATE_REQUEST":
+      return {...state,loading:true}
+    case "REQUEST_SUCCESS":
+      return {...state,loading:false}
+  case "REQUEST_FAIL":
+    return {...state,loading:false}
+      default:
+        return state
+  }
+}
 
 const PlaceOrder = () => {
 
+const navigate =useNavigate()
+  const [{loading},dispatch]=useReducer(reducer,{
+    loading:false,
+    error:''
+  })
 
 const {state,dispatch:Dispatch}=useContext(Store)
 
@@ -19,6 +42,39 @@ cart.shippingPrice =cart.itemsPrice>100?RoundNumber(0):RoundNumber(100);
 cart.taxPrice = RoundNumber(0.15*cart.itemsPrice)
 cart.totalPrice =cart.itemsPrice+cart.shippingPrice+cart.taxPrice
 
+const placeOrderHandler = async()=>{
+  try{  
+        dispatch({type:"CREATE_REQUEST"})
+
+         const {data}=  await axios.post('http://localhost:5000/orders',{
+          orderItems:cart.cartItem,
+          deliveryAddress:cart.deliveryAddress,
+          paymentMethod:cart.paymentMethod,
+          itemsPrice:cart.itemsPrice,
+          shippingPrice:cart.shippingPrice,
+          taxPrice:cart.taxPrice,
+          totalPrice:cart.totalPrice,
+          user:userInfo._id
+        },
+        {
+          headers:{
+            authorization:`Bearer ${userInfo.token}`
+          }
+        }
+        )
+
+        console.log(data);
+        // Dispatch({type:"CART_CLEAR"});
+        dispatch({type:"REQUEST_SUCCESS"})
+        // localStorage.removeItem('cartItem')
+        navigate(`/order/${data.order._id}`)
+
+  }catch(err){
+    dispatch({type:"REQUEST_FAIL"})
+    // toast.error(getError(err))
+    console.log(err);
+  }
+}
 
 
 
@@ -95,6 +151,10 @@ cart.totalPrice =cart.itemsPrice+cart.shippingPrice+cart.taxPrice
                       </tbody>
                 </table>
             </div>
+            <div className='order-place'>
+              <button onClick={placeOrderHandler}>Place Order</button>
+            </div>
+            {loading && <Loading/>}
         </div>
       </div>
     </div>

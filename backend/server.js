@@ -9,6 +9,7 @@ const ProductRouter = require('./Routes/ProductRoutes');
 const CategoryRoute = require('./Routes/CategoryRoutes');
 const SliderRouter = require('./Routes/SliderRoutes');
 const UserRouter = require('./Routes/UserRoutes');
+const OrderRouter = require('./Routes/OrderRoutes');
 
 dotenv.config();
 app.use(cors());
@@ -30,7 +31,8 @@ app.use('/slider',SliderRouter)
 app.use('/user',UserRouter)
 //Register user
 app.use('/user',UserRouter)
-
+//order creation
+app.use('/orders',OrderRouter)
 
 
 app.use((err,req,res,next)=>{

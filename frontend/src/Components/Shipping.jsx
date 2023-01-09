@@ -27,7 +27,7 @@ const Shipping = () => {
             district: '' || deliveryAddress.district,
             postalcode:'' || deliveryAddress.postalcode, 
         }
-        )
+    )
     const handleChange = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
@@ -48,7 +48,7 @@ const Shipping = () => {
                 payload:{
                    name:input.name,
                     address:input.address,
-                    phoneNumber:input.name,
+                    phoneNumber:input.phoneNumber,
                     state:input.state,
                     district:input.district,
                     postalcode:input.postalcode
