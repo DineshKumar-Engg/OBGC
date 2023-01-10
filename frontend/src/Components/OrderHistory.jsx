@@ -5,6 +5,8 @@ import { Store } from '../Store'
 import { getError } from '../utils'
 import Loading from './Loading'
 
+
+
 const reducer =(state,action)=>{
     switch(action.type){
         case "GET_REQUEST":
@@ -26,9 +28,6 @@ const OrderHistory = () => {
     const {state}= useContext(Store)
     const{userInfo}=state
 
-    const params = useParams()
-    const {id : orderId}=params
-
     const navigate =useNavigate()
 
     const [{loading,order,fails},dispatch]=useReducer(reducer,{
@@ -40,20 +39,25 @@ const OrderHistory = () => {
 useEffect(()=>{
 
     const fetchOrder = async()=>{
+        dispatch({type:"GET_REQUEST"})
+
         try{
-            dispatch({type:"GET_REQUEST",loading:true,fails:''})
-            const {data} = await axios.get(`http://localhost:5000/orders/history`,{
+            
+            const {data} = await axios.get(`http://localhost:5000/orders/history`,
+            {
                 headers:{authorization:`Bearer ${userInfo.token}`}
             })
-             return dispatch({type:"SUCCESS_REQUEST",payload:data})
 
-            // console.log(data);
+            console.log(data);
+        //  dispatch({type:"SUCCESS_REQUEST",payload:data})
+
+            console.log(order);
         }catch(err){
             console.log(err);
             dispatch({type:"FAILS_REQUEST",payload:getError(err)})
         }
     }
-    fetchOrder()
+    fetchOrder();
  
 },[userInfo])
 

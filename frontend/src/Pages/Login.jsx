@@ -40,6 +40,7 @@ const Login = () => {
     await axios.post("http://localhost:5000/user/login", input)
       .then((res) => {
         toast.success("User Login Successfully",{autoClose:2000})
+        console.log(res.data);
         Dispatch({
           type: "USER_LOGIN",
           payload: res.data
@@ -51,7 +52,7 @@ const Login = () => {
          return toast.error(err.response.data,{autoClose:2000})
       })
         
-        
+       
         
   }
 

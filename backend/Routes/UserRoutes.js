@@ -18,18 +18,14 @@ UserRouter.post('/login', expressAsyncHandler(async (req, res) => {
         if (!password) {
             
             return res.status(404).json("User password is not correct")
-        }
+        }   
         const Token = jwt.sign(
         {
             _id: user._id,
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
-        }, 
-        process.env.JWT_SECRET_TOKEN, 
-        { expiresIn: '3d' }
-        
-        )
+        }, process.env.JWT_SECRET_TOKEN, { expiresIn: '3d' })
         if (user && password) {
             res.send({
                 _id: user._id,
@@ -38,8 +34,9 @@ UserRouter.post('/login', expressAsyncHandler(async (req, res) => {
                 isAdmin: user.isAdmin,
                 token:Token
             })
-            // res.header('auth', Token).json(Token)
+          
         }
+
     }catch(err){
         return res.status(401).json("check login routes server")
     }

@@ -2,8 +2,11 @@ const OrderRouter = require('express').Router();
 const Order = require('../models/OrderSchema.js');
 const expressAsyncHandler = require('express-async-handler');
 const { isAuth } = require('../utils.js');
+const mongoose = require('mongoose')
 
 OrderRouter.post('/',isAuth,expressAsyncHandler(async(req,res)=>{
+
+   
     const newOrder = new Order({
         orderItems:req.body.orderItems.map((orderItems)=>({...orderItems,product:orderItems._id})), 
         deliveryAddress:req.body.deliveryAddress,
@@ -12,13 +15,21 @@ OrderRouter.post('/',isAuth,expressAsyncHandler(async(req,res)=>{
         shippingPrice:req.body.shippingPrice,
         taxPrice:req.body.taxPrice,
         totalPrice:req.body.totalPrice,
-        user:req.body.user,
-    });
-
+        user:req.user._id,
+    })
     const order = await newOrder.save() 
     res.status(201).send({message:'New Order created',order})
 
+
 }))
+
+OrderRouter.get('/history',isAuth,expressAsyncHandler(async(req,res)=>{
+
+    const orders = await Order.findOne({user:req.user._id})
+    res.send(orders)
+   console.log(orders);
+}))
+
 
 
 OrderRouter.get('/:id',isAuth,expressAsyncHandler(async(req,res)=>{
@@ -31,15 +42,6 @@ OrderRouter.get('/:id',isAuth,expressAsyncHandler(async(req,res)=>{
 }))
 
 
-OrderRouter.get('/history',isAuth,expressAsyncHandler(async(req,res)=>{
-
-        const orders = await Order.find({user:req.user._id})
-        .then((res)=> console.log(res.data))
-        .catch((err)=> console.log(err))
-        res.send(orders)
-
-    
-}))
 
 
 module.exports = OrderRouter

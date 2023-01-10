@@ -45,14 +45,14 @@ useEffect(()=>{
     const fetchOrder = async()=>{
         try{
             dispatch({type:"GET_REQUEST",loading:true,fails:''})
-            const {data} = await axios.get(`http://localhost:5000/orders/${orderId}`,{
-                user:userInfo._id
-            },{
-                headers:{authorization:`Bearer ${userInfo.token}`}
+            const {data} = await axios.get(`http://localhost:5000/orders/${orderId}`,
+            {
+              headers:{
+                authorization:`Bearer ${userInfo.token}`
+              }
             })
-             return dispatch({type:"SUCCESS_REQUEST",payload:data})
 
-            // console.log(data);
+           dispatch({type:"SUCCESS_REQUEST",payload:data})
         }catch(err){
             console.log(err);
             dispatch({type:"FAILS_REQUEST",payload:getError(err)})

@@ -7,7 +7,7 @@ const initialState={
     cart:{
         deliveryAddress:localStorage.getItem('deliveryAddress')? JSON.parse(localStorage.getItem('deliveryAddress')):{},
         cartItem:localStorage.getItem('cartItem')? JSON.parse(localStorage.getItem('cartItem')):[],
-        paymentMethod:localStorage.getItem('paymentMethod')?(localStorage.getItem('paymentMethod')):''
+        paymentMethod:localStorage.getItem('paymentMethod') ? (localStorage.getItem('paymentMethod')):''
 
     },
     wish:{

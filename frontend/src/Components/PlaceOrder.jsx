@@ -32,7 +32,7 @@ const navigate =useNavigate()
     error:''
   })
 
-const {state,dispatch:Dispatch}=useContext(Store)
+const {state}=useContext(Store)
 
 const {cart,userInfo}=state
 
@@ -54,7 +54,6 @@ const placeOrderHandler = async()=>{
           shippingPrice:cart.shippingPrice,
           taxPrice:cart.taxPrice,
           totalPrice:cart.totalPrice,
-          user:userInfo._id
         },
         {
           headers:{
@@ -63,7 +62,7 @@ const placeOrderHandler = async()=>{
         }
         )
 
-        console.log(data);
+        console.log(userInfo.token);
         // Dispatch({type:"CART_CLEAR"});
         dispatch({type:"REQUEST_SUCCESS"})
         // localStorage.removeItem('cartItem')
