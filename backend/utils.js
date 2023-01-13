@@ -1,6 +1,5 @@
 
 const jwt =require('jsonwebtoken')
-const decode = jwt.decode();
 
 const isAuth = (req,res,next)=>{
    
@@ -13,7 +12,7 @@ const isAuth = (req,res,next)=>{
                     res.status(401).send({message:'invalid token'})
                 }
                 else{
-                    req.user =token
+                    req.user =decode
                     next();
                 }
     

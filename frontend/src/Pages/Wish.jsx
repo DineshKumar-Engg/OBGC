@@ -53,9 +53,9 @@ const Wish = () => {
           )
         }
     </div>
-    <div className="wish-Col">
+    {/* <div className="wish-Col">
 
-    </div>
+    </div> */}
     </div>
   </div>
   )

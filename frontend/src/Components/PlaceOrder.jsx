@@ -32,7 +32,7 @@ const navigate =useNavigate()
     error:''
   })
 
-const {state}=useContext(Store)
+const {state,dispatch:Dispatch}=useContext(Store)
 
 const {cart,userInfo}=state
 
@@ -46,10 +46,9 @@ const placeOrderHandler = async()=>{
   try{  
         dispatch({type:"CREATE_REQUEST"})
 
-         const {data}=  await axios.post('http://localhost:5000/orders',{
+         const {data}=  await axios.post('http://localhost:5000/order',{
           orderItems:cart.cartItem,
-          deliveryAddress:cart.deliveryAddress,
-          paymentMethod:cart.paymentMethod,
+          deliveryAddress:cart.deliveryAddress, 
           itemsPrice:cart.itemsPrice,
           shippingPrice:cart.shippingPrice,
           taxPrice:cart.taxPrice,
@@ -63,15 +62,14 @@ const placeOrderHandler = async()=>{
         )
 
         console.log(userInfo.token);
-        // Dispatch({type:"CART_CLEAR"});
+        Dispatch({type:"CART_CLEAR"});
         dispatch({type:"REQUEST_SUCCESS"})
-        // localStorage.removeItem('cartItem')
+        localStorage.removeItem('cartItem')
         navigate(`/order/${data.order._id}`)
 
   }catch(err){
     dispatch({type:"REQUEST_FAIL"})
-    // toast.error(getError(err))
-    console.log(err);
+    toast.error(getError(err))
   }
 }
 
@@ -95,7 +93,7 @@ const placeOrderHandler = async()=>{
                 <p><strong>State:</strong> {cart.deliveryAddress.state}</p>
                 <p><strong>District :</strong>{cart.deliveryAddress.district}</p>
                 <p><strong>Postal Code :</strong>{cart.deliveryAddress.postalcode}</p>
-                <p><strong>Payment :</strong>{cart.paymentMethod}</p>
+                <p><strong>Payment :</strong>{cart.deliveryAddress.payment}</p>
             </div>
             <div className='order-edit'>
               <Link to='/shipping'><button>Edit Delivery Address</button></Link>

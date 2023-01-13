@@ -11,17 +11,17 @@
     align-items: center;
     
 }
-.form{
+.formRegister{
     max-width:400px;
     min-width: 340px;
     max-height:auto;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
 }
 
-.form-title{
+.formRegister-title{
     font-size: 25px;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -38,12 +38,12 @@
     font-weight: 700;
     color:red ;
 }
-.form-group{
+.formRegister-group{
     height: 58px;
     margin-bottom: 20px;
     position: relative;
 }
-.form-control{
+.formRegister-control{
     position: absolute;
     top:0;
     left:0;
@@ -56,7 +56,7 @@
     border-radius: 3px;
     z-index: 1;
 }
-.form-label{
+.formRegister-label{
     position: absolute;
     left: 19px;
     top: 20px;
@@ -69,29 +69,21 @@
     font-weight: 700;
 }
 
-.form-control:focus+ .form-label{
+.formRegister-control:focus+ .formRegister-label{
     top: -10px;
     z-index: 10;
     color: #1F1F1F;
 }
-.form-control:focus{
+.formRegister-control:focus{
     border-color: #1F1F1F;
 }
-.form-control:not(:focus):valid+label{
+.formRegister-control:not(:focus):valid+label{
     top: -10px;
     z-index: 10;
 }
-input[type="checkbox"]{
-    width: 20px;
-    height: 18px;
-    margin:0px 10px;
-    font-size: 20px;
-    border: none;
-    outline: none;
-}
 .showlabel{
-    font-size:20px;
-    font-weight: 700;
+    font-size:25px;
+    font-weight: 600;
 }
 
 .bottom-box{
@@ -113,7 +105,7 @@ input[type="checkbox"]{
     font-weight: 700;
     color: #ffffff;
 }
-.form-button{
+.formRegister-button{
     display: block;
     padding: 10px 20px;
     outline: none;
@@ -123,14 +115,14 @@ input[type="checkbox"]{
     cursor: pointer;
     transition: 0.3s;
 }
-.form-button:hover{
+.formRegister-button:hover{
     box-shadow: 0 10px  36px rgba(0,0,0,0.15);
 }
 
 ::selection{
     background-color: #125feb;
 }
-.form-sign{
+.formRegister-sign{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -162,7 +154,7 @@ input[type="checkbox"]{
 }
 .btn:hover .layer{
 width: 100%;
-transform: skew(0deg);
+transformRegister: skew(0deg);
 color: white;
 }
 .btn:hover{

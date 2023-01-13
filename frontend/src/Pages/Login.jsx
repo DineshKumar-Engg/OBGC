@@ -80,8 +80,8 @@ const Login = () => {
           <label className="form-label">Password</label>
         </div>
         <div className="form-group">
-          <label className="showlabel"><input type={"checkbox"}  value={check}  onChange={changeType} id="show" />Show Password</label>
-
+        <input type={"checkbox"}  value={check}  onChange={changeType}  />
+          <label className="showlabel">Show Password</label>
         </div>
         <div className="bottom-box">
           <Link>Forgot Password?</Link>

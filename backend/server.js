@@ -32,7 +32,7 @@ app.use('/user',UserRouter)
 //Register user
 app.use('/user',UserRouter)
 //order creation
-app.use('/orders',OrderRouter)
+app.use('/order',OrderRouter)
 
 
 app.use((err,req,res,next)=>{

@@ -29,13 +29,18 @@ flex:3;
     padding:10px;
 
 }
-.order-address span,p{
+.order-address>p{
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 1px;
     margin: 20px 0px 0px 20px;
 }
-
+.order-address>span{
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 20px 0px 0px 20px;
+}
 .order-edit{
 
     margin:20px 0px 0px 30px; 

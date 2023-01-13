@@ -18,7 +18,7 @@ const Register = () => {
     const handleChange = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
-    const { state, dispatch: Dispatch } = useContext(Store)
+    // const { state, dispatch: Dispatch } = useContext(Store)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,7 +40,7 @@ const Register = () => {
             .catch((err)=>{
                 toast.error(err.response.data,{autoClose:2000})
             })
-            //   navigate('/login')
+              navigate('/login')
         }         
         catch(err){
             console.log(err);        

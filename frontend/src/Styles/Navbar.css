@@ -91,11 +91,14 @@
         text-align: center;
     }
 
-    .navbar-main p {
+    .navbar-main p{
         position: relative;
-        top: -15px;
+        top: -18px;
+        left:0px;
         font-size: 15px;
         font-weight: 800;
+        width:5px;
+        height: 5px;
     }
 
     .navbar-items ul li:hover {
@@ -167,12 +170,12 @@
   
     .dropdown p {
         position: absolute;
-        top: -2px;
-        left: 15px;
+        top: -5px;
+        left:15px;
         font-size: 16px;
         color: #fdfdfd;
-        width: 10px;
-        height: 15px;
+            width: 10px;
+            height: 15px;
     }
 
     .dropdown span {

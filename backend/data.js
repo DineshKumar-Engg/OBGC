@@ -17,46 +17,39 @@ const data={
     ],
     Slider:[
         {
-            //_id:1,
             image:"/Images/FrontBanner/image1.jpg"
         },
         {
-            //_id:2,
             image:"/Images/FrontBanner/image2.jpg"
         },
         {
-           // _id:3,
             image:"/Images/FrontBanner/image3.jpg"
         },
         {
-            //_id:4,
             image:"/Images/FrontBanner/image4.jpg"
         },
         {
-            //_id:5,
             image:"/Images/FrontBanner/image5.jpg"
         },
         {
-           // _id:6,
             image:"/Images/FrontBanner/image6.jpg"
         },{
-            //_id:7,
             image:"/Images/FrontBanner/image7.jpg"
         }
      ],
     Category:[
         {
-            //_id:1,
+            
             title:'Mens',
             image:"/Images/Category/cimage1.jpg"
         },
         {
-            //_id:2,
+            
             title:'Girls',
             image:"/Images/Category/cimage2.jpg"
         },
         {
-            //_id:3,
+            
             title:'Kids',
             image:"/Images/Category/cimage3.jpg"
         },
@@ -145,7 +138,7 @@ const data={
 ],
     Product:[
         {
-            // _id:1,
+        
             title:'Shirt-1',
             slug:'product1',
             category:'Mens',
@@ -158,7 +151,7 @@ const data={
             price:'90.00'
         },
         {
-            // _id:2,
+        
             title:'Shirt-2',
             slug:'product2',
             category:'Mens',
@@ -171,7 +164,7 @@ const data={
             price:'95.00'
         },
         {
-            // _id:3,
+        
             title:'Shirt-3',
             slug:'product3',
             category:'Mens',
@@ -184,7 +177,7 @@ const data={
             price:'110.00'
         },
         {
-            // _id:4,
+        
             title:'causal-1',
             slug:'product4',
             category:'Girls',
@@ -197,7 +190,7 @@ const data={
             price:'100.00'
         },
         {
-            // _id:5,
+        
             title:'causal-2',
             slug:'product5',
             category:'Girls',
@@ -210,7 +203,7 @@ const data={
             price:'120.00'
         },
         {
-            // _id:6,
+        
             title:'causal-3',
             slug:'product6',
             category:'Girls',
@@ -223,7 +216,7 @@ const data={
             price:'40.00'
         },
         {
-            // _id:7,
+        
             title:'Fancy-1',
             slug:'product7',
             category:'Kids',
@@ -236,7 +229,7 @@ const data={
             price:'80.00'
         },
         {
-            // _id:8,
+        
             title:'Fancy-2',
             slug:'product8',
             category:'Kids',
@@ -249,7 +242,7 @@ const data={
             price:'50.00'
         },
         {
-            // _id:9,
+        
             title:'Fancy-3',
             slug:'product9',
             category:'Kids',

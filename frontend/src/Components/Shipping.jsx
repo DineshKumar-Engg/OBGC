@@ -25,18 +25,19 @@ const Shipping = () => {
             phoneNumber:'' || deliveryAddress.phoneNumber,
             state: '' || deliveryAddress.state,
             district: '' || deliveryAddress.district,
-            postalcode:'' || deliveryAddress.postalcode, 
+            postalcode:'' || deliveryAddress.postalcode,
+
         }
     )
     const handleChange = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
 
-    // useEffect(()=>{
-    //     if(!userInfo){
-    //         navigate('/login')
-    //     }
-    // },[userInfo,navigate])
+    useEffect(()=>{
+        if(!userInfo){
+            navigate('/login')
+        }
+    },[userInfo,navigate])
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -51,13 +52,14 @@ const Shipping = () => {
                     phoneNumber:input.phoneNumber,
                     state:input.state,
                     district:input.district,
-                    postalcode:input.postalcode
+                    postalcode:input.postalcode,
+                    payment:payment
                 },
             }, 
-            {
-                type:"PAYMENT_METHOD",
-                payload:payment
-            }
+            // {
+            //     type:"PAYMENT_METHOD",
+            //     payload:payment
+            // }
 
             )
         localStorage.setItem('deliveryAddress',JSON.stringify(
@@ -67,10 +69,11 @@ const Shipping = () => {
                     phoneNumber:input.phoneNumber,
                     state:input.state,
                     district:input.district,
-                    postalcode:input.postalcode
+                    postalcode:input.postalcode,
+                    payment:payment,
             }
         ))
-        localStorage.setItem('paymentMethod',payment)
+        // localStorage.setItem('paymentMethod',payment)
         
         navigate('/placeorder')
     }
@@ -109,11 +112,11 @@ const Shipping = () => {
                 <div className='paymentmain'>
                 <div className='checkBox'>
                 <input type={"checkbox"} value="Cash"   checked={payment ==="Cash"}  onChange={(e)=>{setPayment(e.target.value)}} />
-                    <label >Cash</label>
+                    <label className='showlabel' >Cash</label>
                 </div>
                 <div className='checkBox'>
                 <input type={"checkbox"} value="Card" checked={payment ==="Card"}  onChange={(e)=>{setPayment(e.target.value)}} />
-                    <label >Card</label>
+                    <label className='showlabel' >Card</label>
                 </div>
                 </div>
                 <div className='register-btn'>

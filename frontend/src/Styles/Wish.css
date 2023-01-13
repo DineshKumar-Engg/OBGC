@@ -8,33 +8,35 @@
         margin-bottom: 20px;
       display:flex;
       justify-content: center;
+      align-items:center ;
   }
-  .wish-Row:nth-child(2){
+  /* .wish-Row:nth-child(2){
       display: flex;
       min-height: 100vh;
      
-  }
+  } */
   .wish-Col:first-child{
     padding: 10px;
       flex: 3;
   }
-  .wish-Col:last-child{
+  /* .wish-Col:last-child{
       flex: 2;
-  }
+  } */
   .wishList{
-      width:100%;
+      width:60%;
       height:100%;
       padding:10px;
-  
+      display: flex;
+      flex-direction: column;
   }
   .wishBody{
       margin: 10px;
       padding:10px;
-      max-width:80%;
+      max-width:100%;
       max-height:100%;
       box-shadow: 0px 0px 15px rgba(0,0, 0,0.5);
       display: flex;
-      flex-direction: row;
+      flex-wrap: wrap;
       justify-content: space-evenly;
       border-radius: 10px;
   }
@@ -122,9 +124,6 @@
   
   @media (max-width:400px){
       .wishBody{
-        flex-direction: column;
-        width: 100%;
-        height:auto;
         display: flex;
         justify-content:center;
         align-items: center;
@@ -133,6 +132,7 @@
         width:100%;
         height:100%;
         padding:10px;
+        display: flex;
         justify-content: center;
         align-items: center;
       }

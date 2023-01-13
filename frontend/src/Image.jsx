@@ -11,6 +11,9 @@
 // import kids3 from './products/kids3.jpg'
 
 
+
+
+
 export const slideImage =[
     {
         _id:1,
