@@ -58,8 +58,11 @@ function reducer(state,action){
                 userInfo:null,
                 cart:{cartItem:[],
                     deliveryAddress:{},
-                    paymentMethod:''
-                }}
+                },
+                wish:{
+                    wishItem:[]
+                },
+            }
         case "USER_REGISTER":
             return{...state,}
         case "DELIVERY_ADDRESS":

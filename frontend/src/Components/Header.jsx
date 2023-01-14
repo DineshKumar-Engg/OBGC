@@ -22,12 +22,12 @@ const Header = () => {
       slidingAnimation="left_to_right"
       orientation="horizontal"
       height={"100vh"}
-      // autoplay
+      autoplay
       controller={{
         initialSlide: 1,
         shouldAutoplay: true,
         shouldDisplayButtons: true,
-        // autoplayDuration: 5000,
+        autoplayDuration: 5000,
       }}
   >
     {

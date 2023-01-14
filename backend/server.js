@@ -10,6 +10,7 @@ const CategoryRoute = require('./Routes/CategoryRoutes');
 const SliderRouter = require('./Routes/SliderRoutes');
 const UserRouter = require('./Routes/UserRoutes');
 const OrderRouter = require('./Routes/OrderRoutes');
+const FeedbackRouter = require('./Routes/FeedbackRouter');
 
 dotenv.config();
 app.use(cors());
@@ -33,7 +34,8 @@ app.use('/user',UserRouter)
 app.use('/user',UserRouter)
 //order creation
 app.use('/order',OrderRouter)
-
+// feedback
+app.use('/feedback',FeedbackRouter)
 
 app.use((err,req,res,next)=>{
     res.status(500).send({message:"Server check" + err.message})

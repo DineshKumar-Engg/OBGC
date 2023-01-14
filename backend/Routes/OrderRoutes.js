@@ -26,7 +26,6 @@ OrderRouter.post('/',isAuth,expressAsyncHandler(async(req,res)=>{
 OrderRouter.get('/history',isAuth,expressAsyncHandler(async(req,res)=>{
     const orders = await Order.find({user:req.user._id})
     res.send(orders)
-   console.log(orders);
 }))
 
 

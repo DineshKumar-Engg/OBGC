@@ -71,7 +71,7 @@ const Register = () => {
                     <label className="form-label">Confirm Password</label>
                 </div>
                 <div className='register-btn'>
-                    <span><Link to='/login'><button type="submit" className='submitBtn'>Login</button></Link></span>
+                    <span><Link to='/login'><button type="button" className='submitBtn'>Login</button></Link></span>
                     <span><button type="submit" className='submitBtn' >Submit</button></span>
                 </div>
 

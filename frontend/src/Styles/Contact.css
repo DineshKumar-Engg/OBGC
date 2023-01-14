@@ -1,0 +1,112 @@
+.contact-container{
+    width: 100%;
+    min-height:100vh;
+    padding: 10px;
+}
+.contact-main{
+    width: 100%;
+    height:auto;
+    display: flex;
+    padding: 1rem;
+}
+.contact-Row:first-child{
+    flex:2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-Row:last-child{
+flex: 4;
+}
+.Contact-box{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+.Contact-box>form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    box-shadow: 0 10px  36px rgba(0,0,0,0.15);
+    border-radius: 10px;
+}
+.ContactForm-group{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 10px;
+    width: 80%;
+    height:15%;
+}
+.ContactForm-group>input{
+    width: 50%;
+    height:60%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin: 10px;
+    border:1px solid #1F1F1F;
+}
+.ContactFormText-group>textarea{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin: 10px;
+    resize: none;
+    padding: 10px;
+    border:1px solid #1F1F1F;
+}
+.ContactFormText-group{
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 10px;
+    width: 80%;
+    height:35%;
+}
+.ContactForm-control{
+    font-size: 20px;
+}
+.ContactForm-label{
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.Contact-btn{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items:flex-end;
+    justify-content:flex-end;
+}
+.Contact-btn>button{
+    width:200px;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color:#1F1F1F;
+    color: #ffffff;
+    cursor: pointer;
+}
+@media (max-width:900px){
+    .ContactForm-group>input{
+        width: 100%;
+    }
+}
+@media (max-width:600px){
+    .contact-main{
+        flex-direction: column;
+    }
+    .ContactForm-control{
+        font-size:15px;
+    }
+}
