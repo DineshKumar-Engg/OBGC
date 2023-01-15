@@ -3,7 +3,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useReducer } from 'react'
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 import { Store } from '../Store';
 import { getError } from '../utils';
 import Loading from './Loading';
@@ -67,8 +67,6 @@ useEffect(()=>{
      }
  
 },[order,orderId,navigate,userInfo])
-
-// console.log(order.deliveryAddress);
 
   return (
     <>

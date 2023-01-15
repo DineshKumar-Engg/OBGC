@@ -65,7 +65,6 @@ const Profile = () => {
     try{
         await axios.post("http://localhost:5000/user/register", input)
         .then((res)=>{
-            console.log(res);
             toast.success("User Registered Successfully",{autoClose:2000})
         })
         .catch((err)=>{
@@ -74,7 +73,7 @@ const Profile = () => {
           navigate('/login')
     }         
     catch(err){
-        console.log(err);        
+             console.log(err)
     } 
 }
   useEffect(() => {
@@ -88,11 +87,8 @@ const Profile = () => {
           {
             headers: { authorization: `Bearer ${userInfo.token}` }
           })
-
-        console.log(data);
         dispatch({ type: "SUCCESS_REQUEST", payload: data })
       } catch (err) {
-        console.log(err);
         dispatch({ type: "FAILS_REQUEST", payload: getError(err) })
       }
     }

@@ -1,5 +1,4 @@
 import React from 'react'
-// import { categoryImage } from '../Image'
 import '../Styles/Category.css'
 import { useState } from 'react'
 import { useEffect } from 'react'

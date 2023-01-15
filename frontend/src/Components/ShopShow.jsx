@@ -32,7 +32,6 @@ const ShopShow = ({item,index}) => {
           window.alert("Product is out of Stock")          
           return
         }
-        console.log(data);
         Dispatch({
           type:"CART_ITEM",
           payload:{...item,quantity}

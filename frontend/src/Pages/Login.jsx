@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-//import image from '../Image.jpg' 
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { passwordvalidtor, emailValidator } from '../Validator'
 import {toast} from 'react-toastify'
@@ -25,7 +24,7 @@ const Login = () => {
     setInput({ ...input, [e.target.name]: e.target.value })
   }
 
-  const { state, dispatch: Dispatch } = useContext(Store)
+  const { dispatch: Dispatch } = useContext(Store)
 
   const handleSubmit = async (e) => {
     e.preventDefault();

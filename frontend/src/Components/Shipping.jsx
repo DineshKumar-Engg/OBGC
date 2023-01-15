@@ -56,10 +56,6 @@ const Shipping = () => {
                     payment:payment
                 },
             }, 
-            // {
-            //     type:"PAYMENT_METHOD",
-            //     payload:payment
-            // }
 
             )
         localStorage.setItem('deliveryAddress',JSON.stringify(
@@ -73,8 +69,7 @@ const Shipping = () => {
                     payment:payment,
             }
         ))
-        // localStorage.setItem('paymentMethod',payment)
-        
+       
         navigate('/placeorder')
     }
 

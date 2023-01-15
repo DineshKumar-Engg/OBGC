@@ -4,8 +4,6 @@ import '../Styles/PlaceOrder.css'
 import {Store} from '../Store'
 import { Link, useNavigate } from 'react-router-dom'
 import { useReducer } from 'react'
-import {toast} from 'react-toastify'
-import { getError } from '../utils'
 import axios from 'axios'
 import Loading from './Loading'
 
@@ -69,7 +67,6 @@ const placeOrderHandler = async()=>{
 
   }catch(err){
     dispatch({type:"REQUEST_FAIL"})
-    toast.error(getError(err))
     console.log(err);
   }
 }

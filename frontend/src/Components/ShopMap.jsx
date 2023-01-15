@@ -30,7 +30,6 @@ useEffect(()=>{
         return currentItem.category===categoryItem;
     })
     setData(SortingList)
-    console.log(SortingList)
   }
 
 const [pageNo,setPageNo]=useState(0)

@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import '../Styles/Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { passwordvalidtor, emailValidator } from '../Validator'
 import {toast} from 'react-toastify'
 import axios from 'axios'
-import { Store } from '../Store'
 
 
 
@@ -18,7 +17,6 @@ const Register = () => {
     const handleChange = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
-    // const { state, dispatch: Dispatch } = useContext(Store)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
