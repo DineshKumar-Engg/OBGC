@@ -11,14 +11,14 @@ import {toast} from 'react-toastify'
 const Contact = () => {
 
 
-
+ 
   const navigate = useNavigate();
   const {state}=useContext(Store)
   const {userInfo}=state
-  const [input, setInput] = useState({ name: userInfo.name || " ", email:userInfo.email || '', PhoneNumber: '',message:'' })
-  const [error, setError] = useState("")
 
 
+
+  const [input, setInput] = useState({ name:" " , email: '', PhoneNumber: '',message:'' })
 
   const handleChange = (e) => {
       setInput({ ...input, [e.target.name]: e.target.value })
@@ -43,41 +43,43 @@ const Contact = () => {
     .catch((err)=>toast.error(err.response.data.message))
   }
 
-
   return (
     <div className='contact-container'>
-        <div className='contact-main'>
-            <div className='contact-Row'>
-                <img src={image} alt='logo'></img>
-            </div>
-            <div className='contact-Row'>
-              <div className='Contact-box'> 
-            <form className='Contact-form' onSubmit={handleSubmit}>
-                <h1 className="ContactForm-title">Feedback</h1>
-                {error.length > 0 && (<div className='error'>{error}</div>)}
-                <div className="ContactForm-group">
-                    <input type={"text"} name="name" value={input.name} onChange={handleChange} className="ContactForm-control" required />
-                    <label className="ContactForm-label">Name</label>
-                </div>
-                <div className="ContactForm-group">
-                    <input type={"text"} name="email" value={input.email} onChange={handleChange} className="ContactForm-control" required/>
-                    <label className="ContactForm-label">Email</label>
-                </div>
-                <div className="ContactForm-group">
-                    <input type={"number"} name="PhoneNumber" value={input.PhoneNumber} onChange={handleChange} className="ContactForm-control" required />
-                    <label className="ContactForm-label">Phone Number</label>
-                </div>
-                <div className="ContactFormText-group">
-                    <textarea rows={"3"} cols={"5"} type={"text"} name="message" value={input.message} onChange={handleChange} className="ContactForm-control" id="txtpassword" required />
-                    <label className="ContactForm-label">Message</label>
-                </div>
-                <div className='Contact-btn'>
-                    <button type="submit" >Send Message</button>
-                </div>
-            </form>
-            </div>
-            </div>
+        { userInfo ? 
+        (<div className='contact-main'>
+        <div className='contact-Row'>
+            <img src={image} alt='logo'></img>
         </div>
+        <div className='contact-Row'>
+          <div className='Contact-box'> 
+        <form className='Contact-form' onSubmit={handleSubmit}>
+            <h1 className="ContactForm-title">Feedback</h1>
+            <div className="ContactForm-group">
+                <input type={"text"} name="name" value={input.name} onChange={handleChange} placeholder="Enter Your Name"  className="ContactForm-control" required />
+                <label className="ContactForm-label">Name</label>
+            </div>
+            <div className="ContactForm-group">
+                <input type={"text"} name="email" value={input.email}  onChange={handleChange}  placeholder="Enter Your Email" className="ContactForm-control" required/>
+                <label className="ContactForm-label">Email</label>
+            </div>
+            <div className="ContactForm-group">
+                <input type={"number"} name="PhoneNumber" value={input.PhoneNumber} onChange={handleChange} placeholder="Enter your Phone Number" className="ContactForm-control" required />
+                <label className="ContactForm-label">Phone Number</label>
+            </div>
+            <div className="ContactFormText-group">
+                <textarea rows={"3"} cols={"5"} type={"text"} name="message" value={input.message} onChange={handleChange} placeholder="Leave your feedback" className="ContactForm-control" id="txtpassword" required />
+                <label className="ContactForm-label">Message</label>
+            </div>
+            <div className='Contact-btn'>
+                <button type="submit" >Send Message</button>
+            </div>
+        </form>
+        </div>
+        </div>
+    </div>)
+        :
+        (<h1>Please Login to send feedback<Link to='/login'>Login</Link></h1>)
+        }
     </div>
   )
 }

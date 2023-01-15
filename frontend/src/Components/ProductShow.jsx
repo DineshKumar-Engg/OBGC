@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { Store } from '../Store'
 import axios from 'axios'
+import ShopMap from './ShopMap'
 
 
 const ProductShow = ({item}) => {

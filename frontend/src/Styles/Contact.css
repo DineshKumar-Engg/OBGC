@@ -34,6 +34,7 @@ flex: 4;
     box-shadow: 0 10px  36px rgba(0,0,0,0.15);
     border-radius: 10px;
 }
+
 .ContactForm-group{
     display: flex;
     flex-direction: column-reverse;

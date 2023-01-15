@@ -9,7 +9,7 @@ import { Store } from '../Store'
 import axios from 'axios'
 
 
-const ShopShow = ({item}) => {
+const ShopShow = ({item,index}) => {
 
     const [fullScreen,OpenFullScreen]=useState(false)
 
@@ -24,18 +24,15 @@ const ShopShow = ({item}) => {
 
       const AddToCart= async()=>{
     
-        const ExistItem=cart.cartItem.find((x)=>x._id===item._id)
+        const ExistItem = cart.cartItem.find((x)=>x._id===item._id)
         const quantity = ExistItem ? ExistItem.quantity + 1 : 1;
     
         const {data}=await axios.get(`http://localhost:5000/products/slug/${item.slug}`)
         if(data.CountOfStock < quantity){
-          window.alert("Product is out of Stock")
-          
+          window.alert("Product is out of Stock")          
           return
         }
-        
-        
-
+        console.log(data);
         Dispatch({
           type:"CART_ITEM",
           payload:{...item,quantity}
@@ -58,7 +55,7 @@ const ShopShow = ({item}) => {
 
   return (
     <div>
-        <div className='productContainer' key={item._id}>
+        <div className='productContainer' key={index}>
             <div className='productImage'>
                 <Link to={`/product/${item.slug}`}>
                   <img src={item.image}alt={item.title}></img>

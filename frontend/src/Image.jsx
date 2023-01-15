@@ -146,7 +146,7 @@ export const KidsProduct=[
 
 export const Product=[
     {
-        _id:1,
+        // _id:1,
         title:'Shirt 1',
         slug:'product1',
         category:'Mens',
@@ -159,7 +159,7 @@ export const Product=[
         price:'90.00'
     },
     {
-        _id:2,
+        // _id:2,
         title:'Shirt 2',
         slug:'product2',
         category:'Mens',
@@ -172,7 +172,7 @@ export const Product=[
         price:'95.00'
     },
     {
-        _id:3,
+        // _id:3,
         title:'Shirt 3',
         slug:'product3',
         category:'Mens',
@@ -185,7 +185,7 @@ export const Product=[
         price:'110.00'
     },
     {
-        _id:4,
+        // _id:4,
         title:'causal 1',
         slug:'product4',
         category:'Girls',
@@ -198,7 +198,7 @@ export const Product=[
         price:'100.00'
     },
     {
-        _id:5,
+        // _id:5,
         title:'causal 2',
         slug:'product5',
         category:'Girls',
@@ -211,7 +211,7 @@ export const Product=[
         price:'120.00'
     },
     {
-        _id:6,
+        // _id:6,
         title:'causal 3',
         slug:'product6',
         category:'Girls',
@@ -224,7 +224,7 @@ export const Product=[
         price:'40.00'
     },
     {
-        _id:7,
+        // _id:7,
         title:'Fancy 1',
         slug:'product7',
         category:'Kids',
@@ -237,7 +237,7 @@ export const Product=[
         price:'80.00'
     },
     {
-        _id:8,
+        // _id:8,
         title:'Fancy 2',
         slug:'product8',
         category:'Kids',
@@ -250,7 +250,7 @@ export const Product=[
         price:'50.00'
     },
     {
-        _id:9,
+        // _id:9,
         title:'Fancy 3',
         slug:'product9',
         category:'Kids',

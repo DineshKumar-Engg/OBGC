@@ -33,7 +33,6 @@ const Header = () => {
     {
       slider.map((item)=>(
         <Slide
-      shouldRenderMask
       background={{
         backgroundImageSrc:item.image,
         backgroundAttachment: "fixed"

@@ -19,6 +19,8 @@ const Cart = () => {
 
   const { cart: { cartItem },userInfo } = state
 
+  console.log(cartItem);
+  
   const updateCart= async(item,quantity)=>{
     const {data}=await axios.get(`http://localhost:5000/products/slug/${item.slug}`)
     if(data.CountOfStock < quantity){
@@ -61,8 +63,8 @@ const Cart = () => {
               (
                 <div className='cartList'>
                   {
-                    cartItem.map((item) => (
-                      <div className='cartBody' key={item._id}>
+                    cartItem.map((item,index) => (
+                      <div className='cartBody' key={index}>
                         <div className='cartImage'>
                           <img src={item.image} alt={item.title}></img>
                         </div>

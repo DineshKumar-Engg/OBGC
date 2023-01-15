@@ -173,8 +173,8 @@ width: 200px;
 }
 @media (max-width:500px) {
     .profile-title{
-        font-size:15px;
-        font-weight: 700;
+        font-size:10px;
+        font-weight: 800;
         letter-spacing: 3px;
        }
        .profile-img{

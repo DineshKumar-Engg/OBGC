@@ -60,7 +60,7 @@ const placeOrderHandler = async()=>{
           }
         }
         )
-
+        
         console.log(userInfo.token);
         Dispatch({type:"CART_CLEAR"});
         dispatch({type:"REQUEST_SUCCESS"})
@@ -70,6 +70,7 @@ const placeOrderHandler = async()=>{
   }catch(err){
     dispatch({type:"REQUEST_FAIL"})
     toast.error(getError(err))
+    console.log(err);
   }
 }
 
