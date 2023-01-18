@@ -17,6 +17,10 @@ const FullScreen = ({item}) => {
 
   const {cart,wish}=state
 
+  const closeScreen=()=>{
+    setStyle('OffScreenMain')
+  }
+  
   const AddToCart= async()=>{
 
     const ExistItem=cart.cartItem.find((x)=>x._id===item._id)
@@ -66,7 +70,7 @@ const FullScreen = ({item}) => {
         </div>
         <div className='screenHalf'>
           <div className='closeButton'>
-          <button  onClick={()=>{setStyle('OffScreenMain')}}><FontAwesomeIcon icon={faClose}/></button>
+          <button  onClick={closeScreen}><FontAwesomeIcon icon={faClose}/></button>
           </div>
          
              <div className='TitleCategory div'>

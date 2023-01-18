@@ -13,15 +13,16 @@ import axios from 'axios'
 const ProductShow = ({item}) => {
   const [fullScreen,OpenFullScreen]=useState(false)
 
-  const handleScreen=()=>{
-    OpenFullScreen(true)
-    console.log(fullScreen);
-  }
+ 
 
   const {state,dispatch:Dispatch}=useContext(Store)
 
   const {cart,wish}=state
 
+
+  const handleScreen=()=>{
+    OpenFullScreen(!fullScreen)
+  }
   const AddToCart= async()=>{
 
     const ExistItem=cart.cartItem.find((x)=>x._id===item._id)
@@ -69,6 +70,7 @@ const ProductShow = ({item}) => {
             <div className='productButton'>
                 <button onClick={handleScreen} className='view'><FontAwesomeIcon icon={faSearch}/></button>
                 <button><FontAwesomeIcon onClick={AddToWish} icon={faHeart}/></button>
+                
                 {item.CountOfStock === 0 ? (<button  disabled>Out Of Stock</button>):
                 (<button><FontAwesomeIcon onClick={AddToCart} icon={faBagShopping}/></button>)} 
             </div>

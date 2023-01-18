@@ -117,6 +117,7 @@ const Profile = () => {
         toast.success("Updated Successfully")
         navigate('/login')
       }catch(err){
+        setInput("")
         dispatch({type:"UPDATE_FAIL"})
         toast.error(getError(err))
       }

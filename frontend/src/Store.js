@@ -12,8 +12,7 @@ const initialState={
     wish:{
         wishItem:localStorage.getItem('wishItem')? JSON.parse(localStorage.getItem('wishItem')):[]
     },
-    userInfo:localStorage.getItem('userInfo')? JSON.parse(localStorage.getItem('userInfo')):null
-    
+    userInfo:localStorage.getItem('userInfo')? JSON.parse(localStorage.getItem('userInfo')):null,
 }
 
 function reducer(state,action){
