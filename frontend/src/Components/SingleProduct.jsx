@@ -35,7 +35,7 @@ const SingleProduct = () => {
         const fetch = async()=>{
           dispatch({type:"Product Request"})
           try{
-            const result = await axios.get(`http://localhost:5000/products/slug/${slug}`)
+            const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/products/slug/${slug}`)
             dispatch({type:'Product Success',payload:result.data})
           }catch(err){
             dispatch({type:'Product fails',payload:getError(err)})

@@ -36,7 +36,7 @@ const Login = () => {
       console.log(passwordvalidtor(input.password));
       return setError("password must contain Minimum 8 and maximum 20 characters, at least one uppercase letter, one lowercase letter, one number and one special character:")
     }
-    await axios.post("http://localhost:5000/user/login", input)
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/login`, input)
       .then((res) => {
         toast.success("User Login Successfully",{autoClose:2000})
         console.log(res.data);

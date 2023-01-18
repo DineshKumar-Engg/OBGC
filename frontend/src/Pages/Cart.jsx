@@ -19,7 +19,7 @@ const Cart = () => {
   const { cart: { cartItem },userInfo } = state
   
   const updateCart= async(item,quantity)=>{
-    const {data}=await axios.get(`http://localhost:5000/products/slug/${item.slug}`)
+    const {data}=await axios.get(`${process.env.REACT_APP_SERVER_URL}/products/slug/${item.slug}`)
     if(data.CountOfStock < quantity){
       window.alert("Product is out of Stock")
       return

@@ -63,7 +63,7 @@ const Profile = () => {
         return setError("Password,Confirm Password must be same")
     }
     try{
-        await axios.post("http://localhost:5000/user/register", input)
+        await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/register`, input)
         .then((res)=>{
             toast.success("User Registered Successfully",{autoClose:2000})
         })
@@ -83,7 +83,7 @@ const Profile = () => {
 
       try {
 
-        const { data } = await axios.get(`http://localhost:5000/order/history`,
+        const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/order/history`,
           {
             headers: { authorization: `Bearer ${userInfo.token}` }
           })
@@ -101,7 +101,7 @@ const Profile = () => {
       e.preventDefault();
       dispatch({type:"UPDATE_REQUEST"})
       try{
-        const {data}=await axios.put('http://localhost:5000/user/profile',
+        const {data}=await axios.put(`${process.env.REACT_APP_SERVER_URL}/user/profile`,
         {
           name:input.name,
           email:input.email,

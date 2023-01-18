@@ -22,7 +22,7 @@ const FullScreen = ({item}) => {
     const ExistItem=cart.cartItem.find((x)=>x._id===item._id)
     const quantity = ExistItem ? ExistItem.quantity + 1 : 1;
 
-    const {data}=await axios.get(`http://localhost:5000/products/slug/${item.slug}`)
+    const {data}=await axios.get(`${process.env.REACT_APP_SERVER_URL}/products/slug/${item.slug}`)
     if(data.CountOfStock < quantity){
       window.alert("Product is out of Stock")
       return

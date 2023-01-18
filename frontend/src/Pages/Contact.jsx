@@ -27,7 +27,7 @@ const Contact = () => {
   const handleSubmit= async (e)=>{
     e.preventDefault();
     
-    await axios.post('http://localhost:5000/feedback',
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}/feedback`,
     input,
     {
       headers:{

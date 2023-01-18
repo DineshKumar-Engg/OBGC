@@ -45,7 +45,7 @@ useEffect(()=>{
     const fetchOrder = async()=>{
         try{
             dispatch({type:"GET_REQUEST",loading:true,fails:''})
-            const {data} = await axios.get(`http://localhost:5000/order/${orderId}`,
+            const {data} = await axios.get(`${process.env.REACT_APP_SERVER_URL}/order/${orderId}`,
             {
               headers:{
                 authorization:`Bearer ${userInfo.token}`

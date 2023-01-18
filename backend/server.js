@@ -13,10 +13,11 @@ const OrderRouter = require('./Routes/OrderRoutes');
 const FeedbackRouter = require('./Routes/FeedbackRouter');
 
 dotenv.config();
-app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-
+app.use(cors({
+    origin:["http://localhost:5000","http://obgc-ecommerce.onrender.com"],
+}));
 
 // for data creation inside MONGODB
 app.use('/data',dataList)
@@ -61,7 +62,7 @@ mongoose.connect(process.env.MONGODB_URL)
 .catch((err)=>{
     console.log("Error in Connection MongoDB",err);
 })
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 app.listen(PORT,()=>{
     console.log("Server Running at LocalHost:",PORT);
 })

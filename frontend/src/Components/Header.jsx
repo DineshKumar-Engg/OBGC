@@ -10,7 +10,7 @@ const Header = () => {
 
     useEffect(()=>{
       const fetchSlider=async()=>{
-        const result = await axios("http://localhost:5000/slider")
+        const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/slider`)
         setSlider(result.data)
       }
       fetchSlider();

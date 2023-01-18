@@ -30,7 +30,7 @@ const Register = () => {
             return setError("Password,Confirm Password must be same")
         }
         try{
-            await axios.post("http://localhost:5000/user/register", input)
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/register`, input)
             .then((res)=>{
                 console.log(res);
                 toast.success("User Registered Successfully",{autoClose:2000})

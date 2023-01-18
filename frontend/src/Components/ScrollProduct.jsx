@@ -13,7 +13,7 @@ const ScrollProduct = () => {
 
     useEffect(()=>{
       const fetch = async()=>{
-        const result = await axios.get("http://localhost:5000/scroll")
+        const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/scroll`)
 
         setScrollProduct(
         {

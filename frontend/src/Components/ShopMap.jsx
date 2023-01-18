@@ -15,15 +15,15 @@ const [product,setProduct]=useState([])
 const [data,setData]=useState(product)
 const [category,setCategory]=useState([])
 
-useEffect(()=>{
+// useEffect(()=>{
     const fetch = async()=>{
-      const result = await axios.get("http://localhost:5000/category")
+      const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/category`)
       setCategory(result.data)
-      const product = await axios.get("http://localhost:5000/products")
+      const product = await axios.get(`${process.env.REACT_APP_SERVER_URL}/products`)
       setProduct(product.data)
     }
     fetch();
-},[data])
+// },[data])
 
   const FilterProducts =(categoryItem)=>{
     const SortingList = product.filter((currentItem)=>{

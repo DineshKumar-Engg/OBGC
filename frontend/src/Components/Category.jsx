@@ -10,7 +10,7 @@ const Category = () => {
 
     useEffect(()=>{
       const fetch = async()=>{
-        const result = await axios.get("http://localhost:5000/category")
+        const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/category`)
         setCategory(result.data)
       }
       fetch();

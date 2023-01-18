@@ -44,7 +44,7 @@ const placeOrderHandler = async()=>{
   try{  
         dispatch({type:"CREATE_REQUEST"})
 
-         const {data}=  await axios.post('http://localhost:5000/order',{
+         const {data}=  await axios.post(`${process.env.REACT_APP_SERVER_URL}/order`,{
           orderItems:cart.cartItem,
           deliveryAddress:cart.deliveryAddress, 
           itemsPrice:cart.itemsPrice,
