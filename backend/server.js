@@ -16,7 +16,7 @@ dotenv.config();
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors({
-    origin:["http://localhost:5000","http://obgc-ecommerce.onrender.com"],
+    origin:["http://localhost:5000","http://obgc-ecommerce-app.onrender.com"],
 }));
 
 // for data creation inside MONGODB
