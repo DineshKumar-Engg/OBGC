@@ -3,7 +3,7 @@ import '../Styles/Category.css'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom'
 
 const Category = () => {
     const [category,setCategory]=useState([])
@@ -15,6 +15,14 @@ const Category = () => {
       }
       fetch();
     },[])
+
+    const navigate = useNavigate();
+
+    const categoryshop =()=>{
+        navigate(`/shop`)
+    }
+
+
     return (
         <div className="categoryContainer">
         <div className='categoryMain'>
@@ -25,7 +33,7 @@ const Category = () => {
                     <img src={item.image} alt="" />
                     <div className='content'>
                     <p>{item.title}</p>
-                    <button type='button'>Shop Now</button>
+                    <button type='button'onClick={categoryshop}>Shop Now</button>
                     </div>
                     </div>
 
