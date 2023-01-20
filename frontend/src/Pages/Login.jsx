@@ -85,7 +85,7 @@ const Login = () => {
         <div className="bottom-box">
           <Link>Forgot Password?</Link>
           <button type="submit" className="form-button">
-            <Link to='/register'>Sing-up</Link>   </button>
+            <Link to='/register'>Sign-up</Link>   </button>
         </div>
 
         <div className="form-sign">
