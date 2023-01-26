@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import '../Styles/Scroll.css'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
+import Loading from './Loading'
+
+
+const reducer=(state,action)=>{
+    switch(action.type){
+      case "Product Request":
+        return{...state,loading:true};
+      case "Product Success":
+        return{...state,loading:false,};
+      case "Product fails":
+        return{...state,loading:false,error:action.payload};
+    default:
+      return state;
+    }
+  }
+
+
+
+
+
+
 
 const ScrollProduct = () => {
     const [scrollProduct,setScrollProduct]=useState({
@@ -10,9 +31,14 @@ const ScrollProduct = () => {
         GirlsProduct:[],
         KidsProduct:[]
     })
+    const [{loading},dispatch] = useReducer(reducer,{
+        loading:true,
+      })
 
     useEffect(()=>{
       const fetch = async()=>{
+        dispatch({type:"Product Request"})
+
         const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/scroll`)
 
         setScrollProduct(
@@ -22,13 +48,17 @@ const ScrollProduct = () => {
             KidsProduct:result.data[0].KidsProduct
         }
         )
+        dispatch({type:'Product Success'})
     } 
       fetch();
     },[])
   return (
     <div className='scrollMain'>
         <div className='scrollContainer'>
-           <div className='MensContainer'>
+           {
+            loading ? (<Loading/>):(
+                <>
+                    <div className='MensContainer'>
             <div className='MensTitle'>
             <h1>Latest Mens Product</h1>
             </div>               
@@ -72,6 +102,9 @@ const ScrollProduct = () => {
                 ))
             }
            </div>
+                </>
+            )
+           }
         </div>        
     </div>
   )
