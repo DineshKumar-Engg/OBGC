@@ -74,8 +74,8 @@
     color: #ffffff;
 }
 
-@media (max-width:800px) {
+/* @media (max-width:800px) {
     .view{
-        display: none;
+        display:visible;
     }
-}
+} */
